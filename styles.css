@@ -559,14 +559,14 @@ a.c-value:hover { color: var(--gold); }
 /* ============================================================= */
 /*  ПОДВАЛ (изумрудный)                                          */
 /* ============================================================= */
-.site-footer { background: var(--emerald-deep); color: var(--cream); padding: 60px 0 32px; }
+.site-footer { background: var(--emerald-deep); color: var(--cream); padding: 46px 0 26px; }
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
+  gap: 24px;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 32px;
+  padding-bottom: 24px;
   border-bottom: 1px solid rgba(169, 138, 78, 0.3);
 }
 .footer-brand { display: flex; flex-direction: column; gap: 10px; }
@@ -589,7 +589,7 @@ a.c-value:hover { color: var(--gold); }
 }
 .footer-nav a:hover, .footer-social a:hover { color: var(--gold); }
 /* Реквизиты (юридический блок) */
-.footer-legal { padding: 30px 0 6px; }
+.footer-legal { padding: 22px 0 4px; }
 .footer-legal-title {
   font-family: var(--font-label);
   text-transform: uppercase;
@@ -597,7 +597,7 @@ a.c-value:hover { color: var(--gold); }
   font-size: 0.7rem;
   font-weight: 500;
   color: var(--gold);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .legal-list {
   display: grid;
@@ -608,7 +608,7 @@ a.c-value:hover { color: var(--gold); }
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 14px;
-  padding: 7px 0;
+  padding: 6px 0;
   border-bottom: 1px solid rgba(169, 138, 78, 0.18);
   font-size: 0.86rem;
 }
