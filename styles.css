@@ -347,6 +347,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
 }
 .about-text p { margin-bottom: 18px; font-size: 1.07rem; color: rgba(241, 235, 223, 0.9); }
+/* золотой курсив-акцент для выделенной фразы внутри текста «О салоне» */
+.about-text em { color: var(--gold); font-style: italic; }
 .about-text .section-title { margin-bottom: 26px; }
 .about-text p:last-child { margin-bottom: 0; }
 .about-accent {
