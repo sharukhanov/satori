@@ -4,7 +4,8 @@
    1) мобильное бургер-меню,
    2) плавное появление секций при прокрутке,
    3) ленивая подгрузка карт Яндекса,
-   4) лёгкая тень у шапки при скролле.
+   4) лёгкая тень у шапки при скролле,
+   5) надёжный автозапуск видео-логотипа (в т.ч. на iPhone/Safari).
    Тексты и контент сюда НЕ выносим — они в index.html.
    ============================================================= */
 
@@ -102,6 +103,38 @@
     } else {
       activateLazyFrames(contactsSection);
     }
+  }
+
+  /* -------- 5. Автозапуск видео-логотипа (в т.ч. на iPhone/Safari) --------
+     Safari на iOS не запускает видео просто по атрибуту autoplay: нужно,
+     чтобы видео было программно «muted» и чтобы play() вызвали из кода.
+     Здесь мы это делаем и, если система всё же заблокировала автозапуск
+     (например, включён режим энергосбережения), запускаем видео при
+     первом касании/клике по странице. Владельцу трогать не нужно. */
+  var heroVideo = document.querySelector(".hero-logo");
+  if (heroVideo) {
+    // гарантируем «немой» режим — обязательное условие автозапуска на iOS
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.setAttribute("muted", "");
+    heroVideo.playsInline = true;
+
+    var tryPlayVideo = function () {
+      var p = heroVideo.play();
+      if (p && typeof p.catch === "function") { p.catch(function () {}); }
+    };
+
+    tryPlayVideo();
+    heroVideo.addEventListener("loadeddata", tryPlayVideo);
+    heroVideo.addEventListener("canplay", tryPlayVideo);
+
+    // запасной запуск: первое действие пользователя разблокирует видео
+    ["touchstart", "click", "scroll"].forEach(function (evt) {
+      document.addEventListener(evt, function handler() {
+        tryPlayVideo();
+        document.removeEventListener(evt, handler);
+      }, { once: true, passive: true });
+    });
   }
 
   /* -------- Год в подвале (необязательно) --------
