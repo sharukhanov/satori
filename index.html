@@ -90,10 +90,12 @@
                satori-logo-poster.jpg. Пока их нет — в круге-энсо
                с золотым контуром показывается мягкая заглушка. -->
           <span class="hero-logo-ring">
-            <video class="hero-logo" autoplay muted loop playsinline
+            <video class="hero-logo" autoplay muted loop playsinline webkit-playsinline
+                   preload="auto" disablepictureinpicture
                    poster="images/satori-logo-poster.jpg" aria-label="Логотип Сатори">
-              <source src="images/satori-logo.webm" type="video/webm" />
+              <!-- MP4 первым — это формат для Safari на iPhone/iPad -->
               <source src="images/satori-logo.mp4" type="video/mp4" />
+              <source src="images/satori-logo.webm" type="video/webm" />
             </video>
           </span>
 
