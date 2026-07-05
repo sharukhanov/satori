@@ -585,6 +585,39 @@ a.c-value:hover { color: var(--gold); }
   transition: color 0.25s var(--ease);
 }
 .footer-nav a:hover, .footer-social a:hover { color: var(--gold); }
+/* Реквизиты (юридический блок) */
+.footer-legal { padding: 30px 0 6px; }
+.footer-legal-title {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.legal-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 40px;
+}
+.legal-row {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 14px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(169, 138, 78, 0.18);
+  font-size: 0.86rem;
+}
+.legal-row dt {
+  color: var(--gold);
+  font-family: var(--font-label);
+  letter-spacing: 0.02em;
+}
+.legal-row dd { color: rgba(241, 235, 223, 0.82); }
+.legal-row dd a { color: rgba(241, 235, 223, 0.82); transition: color 0.25s var(--ease); }
+.legal-row dd a:hover { color: var(--gold); }
+
 .footer-bottom { padding-top: 24px; }
 .footer-bottom p { font-size: 0.8rem; color: rgba(241, 235, 223, 0.55); }
 
@@ -607,6 +640,7 @@ a.c-value:hover { color: var(--gold); }
   .about-grid, .rent-grid, .contacts-grid { grid-template-columns: 1fr; gap: 46px; }
   .about-figure { order: -1; }
   .services-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+  .legal-list { grid-template-columns: 1fr; gap: 4px; }
 }
 
 @media (max-width: 760px) {
@@ -637,6 +671,7 @@ a.c-value:hover { color: var(--gold); }
   .hero-logo-row { gap: 14px; }
   .rent-gallery { grid-template-columns: 1fr; }
   .rent-photo-a { margin-top: 0; }
+  .legal-row { grid-template-columns: 1fr; gap: 2px; padding: 9px 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
