@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" role="img" aria-label="Сатори">
+  <!-- Светлый вариант надписи «Сатори» для тёмных (изумрудных) секций.
+       Замените на настоящую векторную надпись. Цвет — через fill. -->
+  <text x="4" y="94" font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-style="italic" font-weight="600" font-size="98" fill="#F1EBDF">Сатори</text>
+</svg>
