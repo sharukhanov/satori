@@ -338,25 +338,29 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================= */
 .section { padding: clamp(72px, 10vw, 130px) 0; }
 
-/* ---------- О салоне ---------- */
+/* ---------- О салоне (изумрудная секция — как «Мастерам») ---------- */
+.about { background: var(--emerald); color: var(--cream); }
 .about-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 64px;
   align-items: center;
 }
-.about-text p { margin-bottom: 18px; font-size: 1.07rem; }
+.about-text p { margin-bottom: 18px; font-size: 1.07rem; color: rgba(241, 235, 223, 0.9); }
 .about-text .section-title { margin-bottom: 26px; }
 .about-text p:last-child { margin-bottom: 0; }
 .about-accent {
   font-family: var(--font-head);
   font-style: italic;
   font-size: 1.35rem;
-  color: var(--emerald);
+  color: var(--gold);
   padding-top: 10px;
 }
 .about-figure { position: relative; }
 .about-photo { max-width: 440px; margin: 0 auto; aspect-ratio: 3 / 4; }
+/* заглушка фото на изумрудном фоне — мягкая, а не яркий кремовый блок */
+.about .ph:has(.img-missing) { background: rgba(241, 235, 223, 0.08); }
+.about .ph:has(.img-missing)::after { color: var(--sage); }
 
 /* ---------- Услуги (светлые карточки на кремовом) ---------- */
 .services { background: var(--cream); }
