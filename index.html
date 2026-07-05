@@ -13,7 +13,7 @@
   <!-- /РЕДАКТИРУЕМО -->
 
   <link rel="canonical" href="https://satori.beauty/" />
-  <meta name="theme-color" content="#1E5345" />
+  <meta name="theme-color" content="#F1EBDF" />
 
   <!-- Open Graph (для красивых ссылок в соцсетях и мессенджерах) -->
   <meta property="og:type" content="website" />
@@ -32,14 +32,14 @@
   <meta name="twitter:description" content="Пространство независимых мастеров: парикмахерское искусство, ногтевой сервис, косметология." />
   <meta name="twitter:image" content="https://satori.beauty/images/og.jpg" />
 
-  <!-- Фавикон: используется логотип салона (images/logo.jpg) -->
+  <!-- Фавикон: одноконтурный знак-лицо (images/logo.jpg) -->
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
   <link rel="apple-touch-icon" href="images/logo.jpg" />
 
   <!-- Шрифты с поддержкой кириллицы -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -49,15 +49,12 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="Сатори — на главную">
-      <!-- ФОТО: логотип салона. Файл: images/logo.jpg
-           (одноконтурное лицо на сэйдж-фоне).
-           Чтобы заменить — загрузите новый файл с тем же именем
-           в папку images/ ИЛИ поменяйте имя в src. -->
-      <img class="brand-logo" src="images/logo.jpg" alt="Логотип салона красоты Сатори" width="44" height="44" onerror="this.style.opacity=0" />
-      <span class="brand-text">
-        <span class="brand-name">Сатори</span>
-        <span class="brand-sub">салон красоты</span>
-      </span>
+      <!-- ФОТО: одноконтурный знак-лицо. Файл: images/logo.jpg
+           Чтобы заменить — загрузите новый файл с тем же именем в images/. -->
+      <img class="brand-face" src="images/logo.jpg" alt="Знак салона красоты Сатори" width="40" height="40" onerror="this.style.opacity=0" />
+      <!-- Каллиграфия «Сатори». Векторный файл images/satori-wordmark.svg
+           (замените на свою готовую надпись; цвет меняется через fill). -->
+      <img class="brand-wordmark" src="images/satori-wordmark.svg" alt="Сатори" height="30" />
     </a>
 
     <nav class="nav" id="nav" aria-label="Основная навигация">
@@ -80,73 +77,86 @@
 
 <main>
 
-  <!-- ===================== HERO / ПЕРВЫЙ ЭКРАН ===================== -->
+  <!-- ===================== HERO / ПЕРВЫЙ ЭКРАН (сплит) ===================== -->
   <section class="hero" id="hero">
-    <!-- Декоративное свечение-нимб (энсо) за логотипом -->
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-enso" aria-hidden="true"></div>
+    <div class="container hero-inner">
 
-    <div class="container hero-inner reveal">
-      <!-- ФОТО: крупный знак бренда в hero. Файл: images/logo.jpg -->
-      <img class="hero-mark" src="images/logo.jpg" alt="Фирменный знак Сатори — лицо, нарисованное одной линией" width="180" height="180" onerror="this.style.opacity=0" />
+      <div class="hero-copy reveal">
+        <p class="eyebrow">МАСТЕРА · РИТУАЛ · ЯСНОСТЬ</p>
 
-      <p class="eyebrow">САЛОН КРАСОТЫ · МАСТЕРА · РИТУАЛ</p>
+        <div class="hero-logo-row">
+          <!-- ВИДЕО-ЛОГО: зацикленное лого рядом с каллиграфией «Сатори».
+               Файлы в images/: satori-logo.webm, satori-logo.mp4,
+               satori-logo-poster.jpg. Пока их нет — в круге-энсо
+               с золотым контуром показывается мягкая заглушка. -->
+          <span class="hero-logo-ring">
+            <video class="hero-logo" autoplay muted loop playsinline
+                   poster="images/satori-logo-poster.jpg" aria-label="Логотип Сатори">
+              <source src="images/satori-logo.webm" type="video/webm" />
+              <source src="images/satori-logo.mp4" type="video/mp4" />
+            </video>
+          </span>
 
-      <!-- РЕДАКТИРУЕМО: название и слоган Hero -->
-      <h1 class="hero-title">Сатори</h1>
-      <p class="hero-slogan">Пространство, где красота рождается в ясности.</p>
-      <p class="hero-subtitle">Стрижка, маникюр, уход за лицом — и мастер, которого вы выбираете сами.</p>
-      <!-- /РЕДАКТИРУЕМО -->
+          <!-- Каллиграфия «Сатори» (векторный файл, не шрифт) -->
+          <img class="hero-wordmark" src="images/satori-wordmark.svg" alt="Сатори" />
+        </div>
 
-      <div class="hero-actions">
-        <!-- РЕДАКТИРУЕМО: ссылки кнопок Hero.
-             «Записаться» → телефон/мессенджер клиента,
-             «Стать мастером» → ссылка на раздел аренды или заявку. -->
-        <a class="btn btn-accent" href="tel:+70000000000">Записаться</a>
-        <a class="btn btn-ghost" href="#rent">Стать мастером</a>
+        <p class="hero-tagline">салон&nbsp;красоты</p>
+
+        <!-- РЕДАКТИРУЕМО: слоган и подзаголовок Hero -->
+        <p class="hero-slogan">Пространство, где красота рождается <em>в ясности</em>.</p>
+        <p class="hero-subtitle">Стрижка, маникюр, уход за лицом — и мастер, которого вы выбираете сами.</p>
         <!-- /РЕДАКТИРУЕМО -->
-      </div>
-    </div>
 
-    <a class="scroll-hint" href="#about" aria-label="Листать вниз">
-      <span></span>
-    </a>
+        <div class="hero-actions">
+          <!-- РЕДАКТИРУЕМО: ссылки кнопок Hero.
+               «Записаться» → телефон/мессенджер клиента,
+               «Стать мастером» → раздел аренды или форма заявки. -->
+          <a class="btn btn-accent" href="tel:+70000000000">Записаться</a>
+          <a class="btn btn-outline" href="#rent">Стать мастером</a>
+          <!-- /РЕДАКТИРУЕМО -->
+        </div>
+      </div>
+
+      <div class="hero-figure reveal">
+        <span class="spark spark-tl" aria-hidden="true"></span>
+        <span class="curl curl-br" aria-hidden="true"></span>
+        <figure class="ph ph-arch hero-photo">
+          <!-- ФОТО: сильный кадр — портрет клиента/модели ИЛИ интерьер
+               с изумрудными креслами и кольцевыми люстрами.
+               Файл: images/hero.jpg -->
+          <img loading="eager" src="images/hero.jpg" alt="Интерьер салона Сатори с изумрудными креслами" onerror="this.classList.add('img-missing')" />
+        </figure>
+      </div>
+
+    </div>
   </section>
 
   <!-- ===================== О САЛОНЕ ===================== -->
   <section class="section about" id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow eyebrow-dark">О САЛОНЕ</p>
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <p class="eyebrow">О САЛОНЕ</p>
         <!-- РЕДАКТИРУЕМО: заголовок раздела «О салоне» -->
-        <h2 class="section-title">«Сатори» — это про ясность</h2>
+        <h2 class="section-title">«Сатори» — это про <em>ясность</em></h2>
+        <!-- /РЕДАКТИРУЕМО -->
+
+        <!-- РЕДАКТИРУЕМО: текст философии бренда.
+             Меняйте текст внутри абзацев <p>...</p>, теги не удаляйте. -->
+        <p>Сатори — буддийское слово о мгновении пробуждения, когда всё вдруг становится простым и понятным. Мы назвали салон так не случайно: для нас красота — это не маска, а момент, когда вы смотрите в зеркало и узнаёте себя — отдохнувшего, настоящего, в ладу с собой.</p>
+        <p>«Сатори» — не обычный салон. Это пространство, которое объединяет лучших независимых мастеров: парикмахеров, мастеров ногтевого сервиса и косметологов. Каждый из них работает в собственном ритме, по своим стандартам и со своим почерком — без корпоративных шаблонов и спешки.</p>
+        <p>Для вас это значит одно: здесь можно найти «своего» мастера — того, кто работает с душой и вниманием именно к вам. Каждый визит превращается в персональный ритуал красоты, а выбор специалиста — в осознанное решение.</p>
+        <p class="about-accent">Мы не продаём услуги. Мы создаём пространство, где красота рождается естественно — в тишине, тепле и ясности.</p>
         <!-- /РЕДАКТИРУЕМО -->
       </div>
 
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <!-- РЕДАКТИРУЕМО: текст философии бренда.
-               Меняйте текст внутри абзацев <p>...</p>, теги не удаляйте. -->
-          <p>Сатори — буддийское слово о мгновении пробуждения, когда всё вдруг становится простым и понятным. Мы назвали салон так не случайно: для нас красота — это не маска, а момент, когда вы смотрите в зеркало и узнаёте себя — отдохнувшего, настоящего, в ладу с собой.</p>
-          <p>«Сатори» — не обычный салон. Это пространство, которое объединяет лучших независимых мастеров: парикмахеров, мастеров ногтевого сервиса и косметологов. Каждый из них работает в собственном ритме, по своим стандартам и со своим почерком — без корпоративных шаблонов и спешки.</p>
-          <p>Для вас это значит одно: здесь можно найти «своего» мастера — того, кто работает с душой и вниманием именно к вам. Каждый визит превращается в персональный ритуал красоты, а выбор специалиста — в осознанное решение.</p>
-          <p class="about-accent">Мы не продаём услуги. Мы создаём пространство, где красота рождается естественно — в тишине, тепле и ясности.</p>
-          <!-- /РЕДАКТИРУЕМО -->
-        </div>
-
-        <!-- Мини-галерея «О салоне» -->
-        <div class="about-gallery reveal">
-          <figure class="ph ph-round">
-            <!-- ФОТО: подсвеченная круглая картина с цветами / роспись «Сатори».
-                 Файл: images/about-art.jpg -->
-            <img loading="lazy" src="images/about-art.jpg" alt="Подсвеченная круглая картина с цветами в интерьере салона Сатори" onerror="this.classList.add('img-missing')" />
-          </figure>
-          <figure class="ph">
-            <!-- ФОТО: общий план зоны ожидания (изумрудные кресла, кольцевые люстры).
-                 Файл: images/hero.jpg -->
-            <img loading="lazy" src="images/hero.jpg" alt="Зона ожидания салона: изумрудные кресла и кольцевые люстры" onerror="this.classList.add('img-missing')" />
-          </figure>
-        </div>
+      <div class="about-figure reveal">
+        <span class="spark spark-tr" aria-hidden="true"></span>
+        <figure class="ph ph-arch about-photo">
+          <!-- ФОТО: подсвеченная круглая картина с цветами / роспись «Сатори».
+               Файл: images/about-art.jpg -->
+          <img loading="lazy" src="images/about-art.jpg" alt="Подсвеченная картина с цветами в интерьере салона Сатори" onerror="this.classList.add('img-missing')" />
+        </figure>
       </div>
     </div>
   </section>
@@ -157,7 +167,7 @@
       <div class="section-head reveal">
         <p class="eyebrow">УСЛУГИ</p>
         <!-- РЕДАКТИРУЕМО: заголовок и вступление раздела «Услуги» -->
-        <h2 class="section-title section-title-light">Три направления, десятки мастеров</h2>
+        <h2 class="section-title">Три направления, <em>десятки мастеров</em></h2>
         <p class="section-lead">В «Сатори» работают независимые специалисты, поэтому окончательную стоимость и детали уточняйте у выбранного мастера. Ниже — основные направления и ориентир по ценам.</p>
         <!-- /РЕДАКТИРУЕМО -->
       </div>
@@ -167,85 +177,94 @@
         <!-- РЕДАКТИРУЕМО: категория «Парикмахерское искусство».
              Чтобы изменить цену — правьте текст в <span class="price">. -->
         <article class="service-card reveal">
-          <figure class="ph service-photo">
+          <figure class="ph ph-arch service-photo">
             <!-- ФОТО: парикмахерский зал (зеркала, рабочие места).
                  Файл: images/service-hair.jpg -->
             <img loading="lazy" src="images/service-hair.jpg" alt="Парикмахерский зал салона Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
-          <h3 class="service-cat">Парикмахерское искусство</h3>
-          <ul class="service-list">
-            <li>
-              <span class="s-name">Стрижка и укладка</span>
-              <span class="s-desc">Женская, мужская, детская; форма, которая идёт именно вам.</span>
-              <span class="price">от 1 500 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Окрашивание</span>
-              <span class="s-desc">От деликатного тонирования до сложных техник и колористики.</span>
-              <span class="price">от 4 000 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Уход и реконструкция волос</span>
-              <span class="s-desc">Восстановление, ботокс, кератин, питательные ритуалы.</span>
-              <span class="price">от 2 500 ₽</span>
-            </li>
-          </ul>
+          <div class="service-body">
+            <p class="service-eyebrow">НАПРАВЛЕНИЕ 01</p>
+            <h3 class="service-cat">Парикмахерское искусство</h3>
+            <ul class="service-list">
+              <li>
+                <span class="s-name">Стрижка и укладка</span>
+                <span class="s-desc">Женская, мужская, детская; форма, которая идёт именно вам.</span>
+                <span class="price">от 1 500 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Окрашивание</span>
+                <span class="s-desc">От деликатного тонирования до сложных техник и колористики.</span>
+                <span class="price">от 4 000 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Уход и реконструкция волос</span>
+                <span class="s-desc">Восстановление, ботокс, кератин, питательные ритуалы.</span>
+                <span class="price">от 2 500 ₽</span>
+              </li>
+            </ul>
+          </div>
         </article>
         <!-- /РЕДАКТИРУЕМО -->
 
         <!-- РЕДАКТИРУЕМО: категория «Ногтевой сервис» -->
         <article class="service-card reveal">
-          <figure class="ph service-photo">
+          <figure class="ph ph-arch service-photo">
             <!-- ФОТО: зона маникюра (кресло, лампа).
                  Файл: images/service-nails.jpg -->
             <img loading="lazy" src="images/service-nails.jpg" alt="Зона маникюра салона Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
-          <h3 class="service-cat">Ногтевой сервис</h3>
-          <ul class="service-list">
-            <li>
-              <span class="s-name">Маникюр с покрытием</span>
-              <span class="s-desc">Аппаратный и комбинированный, стойкое покрытие.</span>
-              <span class="price">от 1 800 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Педикюр</span>
-              <span class="s-desc">Уход, эстетика и комфорт.</span>
-              <span class="price">от 2 200 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Дизайн и моделирование</span>
-              <span class="s-desc">Укрепление, наращивание, индивидуальный дизайн.</span>
-              <span class="price">от 500 ₽</span>
-            </li>
-          </ul>
+          <div class="service-body">
+            <p class="service-eyebrow">НАПРАВЛЕНИЕ 02</p>
+            <h3 class="service-cat">Ногтевой сервис</h3>
+            <ul class="service-list">
+              <li>
+                <span class="s-name">Маникюр с покрытием</span>
+                <span class="s-desc">Аппаратный и комбинированный, стойкое покрытие.</span>
+                <span class="price">от 1 800 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Педикюр</span>
+                <span class="s-desc">Уход, эстетика и комфорт.</span>
+                <span class="price">от 2 200 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Дизайн и моделирование</span>
+                <span class="s-desc">Укрепление, наращивание, индивидуальный дизайн.</span>
+                <span class="price">от 500 ₽</span>
+              </li>
+            </ul>
+          </div>
         </article>
         <!-- /РЕДАКТИРУЕМО -->
 
         <!-- РЕДАКТИРУЕМО: категория «Косметология» -->
         <article class="service-card reveal">
-          <figure class="ph service-photo">
+          <figure class="ph ph-arch service-photo">
             <!-- ФОТО: мойка / полки с косметикой.
                  Файл: images/service-care.jpg -->
             <img loading="lazy" src="images/service-care.jpg" alt="Зона косметологии и ухода в салоне Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
-          <h3 class="service-cat">Косметология</h3>
-          <ul class="service-list">
-            <li>
-              <span class="s-name">Уходовые процедуры для лица</span>
-              <span class="s-desc">Индивидуальный уход по типу кожи.</span>
-              <span class="price">от 3 000 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Чистка и пилинги</span>
-              <span class="s-desc">Мягкое очищение и обновление кожи.</span>
-              <span class="price">от 3 500 ₽</span>
-            </li>
-            <li>
-              <span class="s-name">Брови и ресницы</span>
-              <span class="s-desc">Коррекция, окрашивание, ламинирование.</span>
-              <span class="price">от 1 200 ₽</span>
-            </li>
-          </ul>
+          <div class="service-body">
+            <p class="service-eyebrow">НАПРАВЛЕНИЕ 03</p>
+            <h3 class="service-cat">Косметология</h3>
+            <ul class="service-list">
+              <li>
+                <span class="s-name">Уходовые процедуры для лица</span>
+                <span class="s-desc">Индивидуальный уход по типу кожи.</span>
+                <span class="price">от 3 000 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Чистка и пилинги</span>
+                <span class="s-desc">Мягкое очищение и обновление кожи.</span>
+                <span class="price">от 3 500 ₽</span>
+              </li>
+              <li>
+                <span class="s-name">Брови и ресницы</span>
+                <span class="s-desc">Коррекция, окрашивание, ламинирование.</span>
+                <span class="price">от 1 200 ₽</span>
+              </li>
+            </ul>
+          </div>
         </article>
         <!-- /РЕДАКТИРУЕМО -->
 
@@ -259,59 +278,56 @@
     </div>
   </section>
 
-  <!-- ===================== АРЕНДА / МАСТЕРАМ ===================== -->
+  <!-- ===================== МАСТЕРАМ (изумрудная полоса) ===================== -->
   <section class="section rent" id="rent">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow eyebrow-dark">МАСТЕРАМ</p>
+    <div class="container rent-grid">
+      <div class="rent-text reveal">
+        <p class="eyebrow eyebrow-gold">МАСТЕРАМ</p>
         <!-- РЕДАКТИРУЕМО: заголовок раздела «Аренда» -->
-        <h2 class="section-title">Пространство вашей свободы</h2>
+        <h2 class="section-title section-title-light">Пространство <em>вашей свободы</em></h2>
         <!-- /РЕДАКТИРУЕМО -->
+
+        <!-- РЕДАКТИРУЕМО: текст для мастеров -->
+        <p>«Сатори» — это салон, построенный вокруг мастера. Мы создали место, где вы работаете на себя, но не в одиночку: готовый интерьер, оборудование, поток клиентов и тёплая профессиональная среда — всё уже здесь. Вам остаётся только творить.</p>
+        <p>Вы сами строите график, устанавливаете цены и развиваете личный бренд. Мы берём на себя пространство, атмосферу и заботу о деталях.</p>
+        <!-- /РЕДАКТИРУЕМО -->
+
+        <!-- РЕДАКТИРУЕМО: список преимуществ для мастеров -->
+        <p class="rent-benefits-title">Что вы получаете:</p>
+        <ul class="rent-benefits">
+          <li>Удобные оборудованные рабочие места в готовом стильном интерьере</li>
+          <li>Профессиональное оборудование и комфортные условия</li>
+          <li>Общий поток клиентов салона</li>
+          <li>Свободный график — вы работаете в своём ритме</li>
+          <li>Свои цены и свой личный бренд без корпоративных рамок</li>
+          <li>Дружелюбное окружение единомышленников</li>
+          <li>Чистота, администрирование и атмосфера — на нас</li>
+        </ul>
+        <!-- /РЕДАКТИРУЕМО -->
+
+        <div class="rent-cta">
+          <!-- РЕДАКТИРУЕМО: ссылка заявки мастера (мессенджер или mailto:).
+               Примеры: https://wa.me/79991234567  или  mailto:hello@satori.beauty -->
+          <a class="btn btn-outline-light" href="mailto:hello@satori.beauty?subject=Хочу%20стать%20мастером%20Сатори">Стать мастером</a>
+          <!-- /РЕДАКТИРУЕМО -->
+          <!-- РЕДАКТИРУЕМО: подпись под кнопкой -->
+          <p class="rent-note">Расскажите о себе — и мы подберём для вас место в нашем пространстве.</p>
+          <!-- /РЕДАКТИРУЕМО -->
+        </div>
       </div>
 
-      <div class="rent-grid">
-        <div class="rent-text reveal">
-          <!-- РЕДАКТИРУЕМО: текст для мастеров -->
-          <p>«Сатори» — это салон, построенный вокруг мастера. Мы создали место, где вы работаете на себя, но не в одиночку: готовый интерьер, оборудование, поток клиентов и тёплая профессиональная среда — всё уже здесь. Вам остаётся только творить.</p>
-          <p>Вы сами строите график, устанавливаете цены и развиваете личный бренд. Мы берём на себя пространство, атмосферу и заботу о деталях.</p>
-          <!-- /РЕДАКТИРУЕМО -->
-
-          <!-- РЕДАКТИРУЕМО: список преимуществ для мастеров -->
-          <p class="rent-benefits-title">Что вы получаете:</p>
-          <ul class="rent-benefits">
-            <li>Удобные оборудованные рабочие места в готовом стильном интерьере</li>
-            <li>Профессиональное оборудование и комфортные условия</li>
-            <li>Общий поток клиентов салона</li>
-            <li>Свободный график — вы работаете в своём ритме</li>
-            <li>Свои цены и свой личный бренд без корпоративных рамок</li>
-            <li>Дружелюбное окружение единомышленников</li>
-            <li>Чистота, администрирование и атмосфера — на нас</li>
-          </ul>
-          <!-- /РЕДАКТИРУЕМО -->
-
-          <div class="rent-cta">
-            <!-- РЕДАКТИРУЕМО: ссылка заявки мастера (мессенджер или mailto:).
-                 Примеры: https://wa.me/79991234567  или  mailto:hello@satori.beauty -->
-            <a class="btn btn-accent" href="mailto:hello@satori.beauty?subject=Хочу%20стать%20мастером%20Сатори">Стать мастером</a>
-            <!-- /РЕДАКТИРУЕМО -->
-            <!-- РЕДАКТИРУЕМО: подпись под кнопкой -->
-            <p class="rent-note">Расскажите о себе — и мы подберём для вас место в нашем пространстве.</p>
-            <!-- /РЕДАКТИРУЕМО -->
-          </div>
-        </div>
-
-        <div class="rent-gallery reveal">
-          <figure class="ph">
-            <!-- ФОТО: парикмахерские рабочие места.
-                 Файл: images/rent-1.jpg -->
-            <img loading="lazy" src="images/rent-1.jpg" alt="Оборудованные рабочие места для мастеров в салоне Сатори" onerror="this.classList.add('img-missing')" />
-          </figure>
-          <figure class="ph">
-            <!-- ФОТО: зона мойки / оборудование.
-                 Файл: images/rent-2.jpg -->
-            <img loading="lazy" src="images/rent-2.jpg" alt="Зона мойки и оборудование для мастеров" onerror="this.classList.add('img-missing')" />
-          </figure>
-        </div>
+      <div class="rent-gallery reveal">
+        <span class="spark spark-tl" aria-hidden="true"></span>
+        <figure class="ph ph-arch rent-photo rent-photo-a">
+          <!-- ФОТО: парикмахерские рабочие места.
+               Файл: images/rent-1.jpg -->
+          <img loading="lazy" src="images/rent-1.jpg" alt="Оборудованные рабочие места для мастеров в салоне Сатори" onerror="this.classList.add('img-missing')" />
+        </figure>
+        <figure class="ph rent-photo rent-photo-b">
+          <!-- ФОТО: зона мойки / оборудование.
+               Файл: images/rent-2.jpg -->
+          <img loading="lazy" src="images/rent-2.jpg" alt="Зона мойки и оборудование для мастеров" onerror="this.classList.add('img-missing')" />
+        </figure>
       </div>
     </div>
   </section>
@@ -321,7 +337,7 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">КОНТАКТЫ</p>
-        <h2 class="section-title section-title-light">Приходите в гости</h2>
+        <h2 class="section-title">Приходите <em>в гости</em></h2>
       </div>
 
       <div class="contacts-grid">
@@ -358,7 +374,7 @@
           </div>
           <!-- /РЕДАКТИРУЕМО -->
 
-          <figure class="ph contacts-sign">
+          <figure class="ph ph-arch contacts-sign">
             <!-- ФОТО: вывеска салона рядом с адресом.
                  Файл: images/sign.jpg -->
             <img loading="lazy" src="images/sign.jpg" alt="Вывеска салона красоты Сатори" onerror="this.classList.add('img-missing')" />
@@ -408,7 +424,8 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="brand-name">Сатори</span>
+      <!-- Светлая каллиграфия «Сатори» для тёмного фона -->
+      <img class="footer-wordmark" src="images/satori-wordmark-light.svg" alt="Сатори" height="40" />
       <span class="brand-sub">салон красоты · пространство мастеров</span>
     </div>
 
