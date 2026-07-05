@@ -111,7 +111,7 @@
      Здесь мы это делаем и, если система всё же заблокировала автозапуск
      (например, включён режим энергосбережения), запускаем видео при
      первом касании/клике по странице. Владельцу трогать не нужно. */
-  var heroVideo = document.querySelector(".hero-logo");
+  var heroVideo = document.querySelector(".brand-logo-video");
   if (heroVideo) {
     // гарантируем «немой» режим — обязательное условие автозапуска на iOS
     heroVideo.muted = true;

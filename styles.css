@@ -225,13 +225,24 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   height: 74px;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand-face {
-  width: 40px; height: 40px;
+.brand { display: flex; align-items: center; gap: 13px; }
+/* Круг-энсо с видео-логотипом в шапке */
+.brand-logo {
+  flex: none;
+  width: 48px; height: 48px;
   border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(169, 138, 78, 0.16), transparent 65%),
+    var(--cream-deep);
+}
+.brand-logo-video {
+  width: 100%; height: 100%;
   object-fit: cover;
-  border: 1px solid var(--gold);
-  background: var(--sage);
+  border-radius: 50%;
 }
 .brand-wordmark { height: 30px; width: auto; }
 
@@ -280,7 +291,7 @@ a { color: inherit; text-decoration: none; }
 /*  HERO (сплит)                                                 */
 /* ============================================================= */
 .hero {
-  padding: 130px 0 80px;
+  padding: 100px 0 70px;
   background:
     radial-gradient(120% 90% at 85% 10%, rgba(169, 138, 78, 0.1), transparent 55%),
     var(--cream);
@@ -289,41 +300,10 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
   gap: 60px;
-  align-items: center;
-  min-height: calc(100svh - 210px);
+  align-items: start;
+  min-height: calc(100svh - 220px);
 }
-.hero-logo-row { display: flex; align-items: center; gap: 20px; margin-bottom: 6px; }
-.hero-logo-ring {
-  flex: none;
-  width: 116px; height: 116px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(169, 138, 78, 0.16), transparent 65%),
-    var(--cream-deep);
-  position: relative;
-}
-.hero-logo-ring::after {
-  /* мягкая подсказка, пока нет видео */
-  content: "энсо";
-  position: absolute;
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--gold);
-  opacity: 0.55;
-}
-.hero-logo {
-  position: relative;
-  z-index: 1;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.hero-wordmark { height: clamp(64px, 12vw, 104px); width: auto; }
+.hero-wordmark { display: block; height: clamp(70px, 12.5vw, 116px); width: auto; margin-top: 4px; }
 
 .hero-tagline {
   font-family: var(--font-head);
@@ -331,7 +311,8 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.35rem;
   color: var(--ink);
   opacity: 0.75;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 22px;
 }
 .hero-slogan {
   font-family: var(--font-head);
@@ -627,7 +608,7 @@ a.c-value:hover { color: var(--gold); }
   .nav.open { transform: translateY(0); }
   .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
   .nav-cta { margin-top: 14px; }
-  .hero-logo-ring { width: 92px; height: 92px; }
+  .brand-logo { width: 42px; height: 42px; }
 }
 
 @media (max-width: 480px) {
