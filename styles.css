@@ -77,11 +77,14 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.9;
 }
 /* Важный акцент во вступлении (например: цены — ориентировочные).
-   Оформлен как остальные акценты на сайте — золотой курсив. */
+   Жирный изумрудный + мягкая подсветка-«маркер», чтобы бросалось в глаза. */
 .lead-note {
-  color: var(--gold);
-  font-style: italic;
-  font-weight: 600;
+  color: var(--emerald);
+  font-weight: 700;
+  background: linear-gradient(transparent 58%, rgba(158, 203, 167, 0.6) 0);
+  padding: 0 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .section-head { max-width: 760px; margin-bottom: 60px; }
 
