@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" role="img" aria-label="Сатори">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 132" role="img" aria-label="Сатори">
   <!-- Плейсхолдер каллиграфии «Сатори». Замените на настоящую векторную
-       надпись (тот же файл images/satori-wordmark.svg). Цвет — через fill. -->
-  <text x="4" y="94" font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+       надпись (тот же файл images/satori-wordmark.svg). Цвет — через fill.
+       textLength фиксирует ширину слова, чтобы «и» не обрезалась. -->
+  <text x="8" y="96" textLength="434" lengthAdjust="spacingAndGlyphs"
+        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
         font-style="italic" font-weight="600" font-size="98" fill="#2B2620">Сатори</text>
 </svg>
