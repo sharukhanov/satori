@@ -49,9 +49,17 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="Сатори — на главную">
-      <!-- ФОТО: одноконтурный знак-лицо. Файл: images/logo.jpg
-           Чтобы заменить — загрузите новый файл с тем же именем в images/. -->
-      <img class="brand-face" src="images/logo.jpg" alt="Знак салона красоты Сатори" width="40" height="40" onerror="this.style.opacity=0" />
+      <!-- ВИДЕО-ЛОГО в шапке: зацикленное лого в круге-энсо.
+           Файлы в images/: satori-logo.mp4, satori-logo.webm, satori-logo-poster.jpg.
+           Автозапуск настроен; на iPhone стартует также по касанию (см. app.js). -->
+      <span class="brand-logo">
+        <video class="brand-logo-video" autoplay muted loop playsinline webkit-playsinline
+               preload="auto" disablepictureinpicture
+               poster="images/satori-logo-poster.jpg" aria-label="Логотип Сатори">
+          <source src="images/satori-logo.mp4" type="video/mp4" />
+          <source src="images/satori-logo.webm" type="video/webm" />
+        </video>
+      </span>
       <!-- Каллиграфия «Сатори». Векторный файл images/satori-wordmark.svg
            (замените на свою готовую надпись; цвет меняется через fill). -->
       <img class="brand-wordmark" src="images/satori-wordmark.svg" alt="Сатори" height="30" />
@@ -84,25 +92,8 @@
       <div class="hero-copy reveal">
         <p class="eyebrow">МАСТЕРА · РИТУАЛ · ЯСНОСТЬ</p>
 
-        <div class="hero-logo-row">
-          <!-- ВИДЕО-ЛОГО: зацикленное лого рядом с каллиграфией «Сатори».
-               Файлы в images/: satori-logo.webm, satori-logo.mp4,
-               satori-logo-poster.jpg. Пока их нет — в круге-энсо
-               с золотым контуром показывается мягкая заглушка. -->
-          <span class="hero-logo-ring">
-            <video class="hero-logo" autoplay muted loop playsinline webkit-playsinline
-                   preload="auto" disablepictureinpicture
-                   poster="images/satori-logo-poster.jpg" aria-label="Логотип Сатори">
-              <!-- MP4 первым — это формат для Safari на iPhone/iPad -->
-              <source src="images/satori-logo.mp4" type="video/mp4" />
-              <source src="images/satori-logo.webm" type="video/webm" />
-            </video>
-          </span>
-
-          <!-- Каллиграфия «Сатори» (векторный файл, не шрифт) -->
-          <img class="hero-wordmark" src="images/satori-wordmark.svg" alt="Сатори" />
-        </div>
-
+        <!-- Каллиграфия «Сатори» (векторный файл, не шрифт) -->
+        <img class="hero-wordmark" src="images/satori-wordmark.svg" alt="Сатори" />
         <p class="hero-tagline">салон&nbsp;красоты</p>
 
         <!-- РЕДАКТИРУЕМО: слоган и подзаголовок Hero -->
