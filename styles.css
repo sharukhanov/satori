@@ -633,6 +633,8 @@ a.c-value:hover { color: var(--gold); }
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
 }
 .reveal.in { opacity: 1; transform: none; }
+/* Уже видимое при загрузке — без анимации (не «прыгает» при обновлении) */
+.reveal-static { transition: none; }
 
 /* ============================================================= */
 /*  АДАПТИВ                                                       */

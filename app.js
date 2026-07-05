@@ -12,6 +12,15 @@
 (function () {
   "use strict";
 
+  /* -------- 0. Позиция скролла при обновлении --------
+     Управляем восстановлением скролла сами, чтобы страница вела себя
+     предсказуемо при F5: если в адресе есть якорь (#about и т.п.) —
+     переходим к нему, иначе открываемся сверху. Это убирает «дрейф»
+     позиции и рывок контента при каждом обновлении. */
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
   /* -------- 1. Бургер-меню (мобильные) -------- */
   var burger = document.getElementById("burger");
   var nav = document.getElementById("nav");
@@ -45,7 +54,11 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  /* -------- 3. Плавное появление секций (.reveal) -------- */
+  /* -------- 3. Плавное появление секций (.reveal) --------
+     ВАЖНО: то, что уже видно при загрузке страницы, показываем СРАЗУ,
+     без анимации — иначе при каждом обновлении видимый контент заново
+     «выезжает» снизу и кажется, что страница прыгает вверх. Анимируются
+     только секции, до которых пользователь доскроллит. */
   var revealEls = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window && revealEls.length) {
@@ -60,7 +73,21 @@
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+    var setupReveal = function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      revealEls.forEach(function (el) {
+        if (el.getBoundingClientRect().top < vh * 0.9) {
+          // уже в зоне видимости при загрузке — показать мгновенно, без анимации
+          el.classList.add("in", "reveal-static");
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    };
+
+    // измеряем после того, как браузер применил переход к якорю (если он есть)
+    requestAnimationFrame(setupReveal);
   } else {
     // Если IntersectionObserver не поддерживается — просто показываем всё
     revealEls.forEach(function (el) { el.classList.add("in"); });
