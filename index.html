@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
 
@@ -53,10 +53,8 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="Сатори — на главную">
-      <!-- Логотип шапки: знак-лицо + надпись «САТОРИ» (файлы в images/).
-           Чтобы заменить — загрузите новые файлы с теми же именами
-           (logo-mark.png / logo-wordmark.png) в папку images/. -->
-      <img class="brand-mark" src="images/logo-mark.png" alt="" />
+      <!-- Надпись «САТОРИ» в шапке (logo-wordmark.png).
+           Чтобы заменить — загрузите новый файл с тем же именем в images/. -->
       <img class="brand-word" src="images/logo-wordmark.png" alt="Сатори" />
     </a>
 
@@ -407,8 +405,9 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <!-- Светлая каллиграфия «Сатори» для тёмного фона -->
-      <img class="footer-wordmark" src="images/satori-wordmark-light.svg" alt="Сатори" height="40" />
+      <!-- Надпись «САТОРИ» (logo-wordmark.png). На тёмном фоне подсвечена
+           через CSS-фильтр (см. .footer-wordmark в styles.css). -->
+      <img class="footer-wordmark" src="images/logo-wordmark.png" alt="Сатори" />
       <span class="brand-sub">салон красоты · пространство мастеров</span>
     </div>
 
@@ -480,6 +479,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=13"></script>
+<script src="app.js?v=14"></script>
 </body>
 </html>
