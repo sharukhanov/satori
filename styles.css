@@ -235,26 +235,10 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   height: 74px;
 }
-.brand { display: flex; align-items: center; gap: 13px; }
-/* Круг-энсо с видео-логотипом в шапке */
-.brand-logo {
-  flex: none;
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold);
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(169, 138, 78, 0.16), transparent 65%),
-    var(--cream-deep);
-}
-.brand-logo-video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.brand-wordmark { height: 30px; width: auto; }
+.brand { display: flex; align-items: center; gap: 11px; }
+/* Логотип шапки: знак-лицо + надпись, выровнены по центру по вертикали */
+.brand-mark { height: 40px; width: auto; display: block; flex: none; }
+.brand-word { height: 34px; width: auto; display: block; }
 
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav > a:not(.btn) {
@@ -666,7 +650,6 @@ a.c-value:hover { color: var(--gold); }
   .nav.open { transform: translateY(0); }
   .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
   .nav-cta { margin-top: 14px; }
-  .brand-logo { width: 42px; height: 42px; }
 }
 
 @media (max-width: 480px) {
@@ -677,6 +660,8 @@ a.c-value:hover { color: var(--gold); }
   .rent-gallery { grid-template-columns: 1fr; }
   .rent-photo-a { margin-top: 0; }
   .legal-row { grid-template-columns: 1fr; gap: 2px; padding: 9px 0; }
+  /* На узких экранах в шапке оставляем только знак-лицо */
+  .brand-word { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

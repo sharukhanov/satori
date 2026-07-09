@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
 
@@ -53,20 +53,11 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="Сатори — на главную">
-      <!-- ВИДЕО-ЛОГО в шапке: зацикленное лого в круге-энсо.
-           Файлы в images/: satori-logo.mp4, satori-logo.webm, satori-logo-poster.jpg.
-           Автозапуск настроен; на iPhone стартует также по касанию (см. app.js). -->
-      <span class="brand-logo">
-        <video class="brand-logo-video" autoplay muted loop playsinline webkit-playsinline
-               preload="auto" disablepictureinpicture
-               poster="images/satori-logo-poster.jpg" aria-label="Логотип Сатори">
-          <source src="images/satori-logo.mp4" type="video/mp4" />
-          <source src="images/satori-logo.webm" type="video/webm" />
-        </video>
-      </span>
-      <!-- Каллиграфия «Сатори». Векторный файл images/satori-wordmark.svg
-           (замените на свою готовую надпись; цвет меняется через fill). -->
-      <img class="brand-wordmark" src="images/satori-wordmark.svg" alt="Сатори" height="30" />
+      <!-- Логотип шапки: знак-лицо + надпись «САТОРИ» (файлы в images/).
+           Чтобы заменить — загрузите новые файлы с теми же именами
+           (logo-mark.png / logo-wordmark.png) в папку images/. -->
+      <img class="brand-mark" src="images/logo-mark.png" alt="" />
+      <img class="brand-word" src="images/logo-wordmark.png" alt="Сатори" />
     </a>
 
     <nav class="nav" id="nav" aria-label="Основная навигация">
@@ -489,6 +480,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>
