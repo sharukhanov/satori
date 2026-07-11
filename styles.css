@@ -500,6 +500,9 @@ a.c-value:hover { color: var(--gold); }
 .socials { margin-top: 26px; }
 .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
 .social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-label);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -511,6 +514,8 @@ a.c-value:hover { color: var(--gold); }
   transition: all 0.3s var(--ease);
 }
 .social-links a:hover { background: var(--gold); color: var(--cream); border-color: var(--gold); }
+/* Иконки соцсетей (Telegram/WhatsApp) — цвет наследуется от ссылки */
+.soc-ic { width: 18px; height: 18px; flex: none; display: block; }
 
 .contacts-sign { margin-top: 30px; aspect-ratio: 16 / 10; max-width: 420px; }
 
@@ -583,6 +588,7 @@ a.c-value:hover { color: var(--gold); }
   color: rgba(241, 235, 223, 0.75);
   transition: color 0.25s var(--ease);
 }
+.footer-social a { display: inline-flex; align-items: center; gap: 8px; }
 .footer-nav a:hover, .footer-social a:hover { color: var(--gold); }
 /* Реквизиты (юридический блок) */
 .footer-legal { padding: 22px 0 4px; }
