@@ -27,7 +27,9 @@
 
 /* ---------- Сброс / база ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+/* scroll-padding-top = высоте фиксированной шапки (~74px), чтобы при переходе
+   по якорям секция вставала вплотную под шапку — без полоски предыдущего экрана */
+html { scroll-behavior: smooth; scroll-padding-top: 74px; }
 body {
   font-family: var(--font-body);
   color: var(--ink);
