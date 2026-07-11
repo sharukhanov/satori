@@ -389,6 +389,10 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.5rem;
+  line-height: 1.15;
+  /* резервируем 2 строки, чтобы заголовки категорий были одной высоты
+     и строки услуг (и цены) стояли на одном уровне во всех карточках */
+  min-height: 2.3em;
   color: var(--ink);
   margin-bottom: 16px;
 }
@@ -401,7 +405,8 @@ a { color: inherit; text-decoration: none; }
   gap: 3px;
 }
 .s-name { font-weight: 600; color: var(--ink); font-size: 1.02rem; }
-.s-desc { font-size: 0.9rem; opacity: 0.72; }
+/* резерв под 2 строки описания — выравнивает цены между карточками */
+.s-desc { font-size: 0.9rem; opacity: 0.72; min-height: 3.06rem; }
 .price {
   align-self: flex-start; /* «пилюля» обнимает текст, а не тянется на всю ширину */
   display: inline-block;
