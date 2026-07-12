@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=23" />
 </head>
 <body>
 
@@ -53,8 +53,11 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="Сатори — на главную">
-      <!-- Надпись «САТОРИ» в шапке (logo-wordmark.png).
-           Чтобы заменить — загрузите новый файл с тем же именем в images/. -->
+      <!-- Логотип шапки: знак + золотая линия-разделитель + надпись «САТОРИ».
+           Файлы images/logo-mark.png и images/logo-wordmark.png.
+           Чтобы заменить — загрузите файлы с теми же именами в images/. -->
+      <img class="brand-mark" src="images/logo-mark.png" alt="" />
+      <span class="brand-divider" aria-hidden="true"></span>
       <img class="brand-word" src="images/logo-wordmark.png" alt="Сатори" />
     </a>
 
@@ -137,6 +140,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Разделитель между секциями (переиспользуемый блок) -->
+  <div class="section-divider" aria-hidden="true">
+    <span class="section-divider-line"></span>
+    <img class="section-divider-mark" src="images/logo-mark.png" alt="" />
+    <span class="section-divider-line"></span>
+  </div>
 
   <!-- ===================== УСЛУГИ ===================== -->
   <section class="section services" id="services">
@@ -255,6 +265,13 @@
     </div>
   </section>
 
+  <!-- Разделитель между секциями (переиспользуемый блок) -->
+  <div class="section-divider" aria-hidden="true">
+    <span class="section-divider-line"></span>
+    <img class="section-divider-mark" src="images/logo-mark.png" alt="" />
+    <span class="section-divider-line"></span>
+  </div>
+
   <!-- ===================== МАСТЕРАМ (изумрудная полоса) ===================== -->
   <section class="section rent" id="rent">
     <div class="container rent-grid">
@@ -308,6 +325,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Разделитель между секциями (переиспользуемый блок) -->
+  <div class="section-divider" aria-hidden="true">
+    <span class="section-divider-line"></span>
+    <img class="section-divider-mark" src="images/logo-mark.png" alt="" />
+    <span class="section-divider-line"></span>
+  </div>
 
   <!-- ===================== КОНТАКТЫ ===================== -->
   <section class="section contacts" id="contacts">
@@ -476,6 +500,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=22"></script>
+<script src="app.js?v=23"></script>
 </body>
 </html>
