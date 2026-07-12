@@ -337,9 +337,12 @@ a { color: inherit; text-decoration: none; }
   display: block;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  /* крупнее и вплотную к правому краю окна (bleed за пределы контейнера),
+     но не шире половины экрана — чтобы не налезать на текст слева */
+  max-width: 50vw;
+  max-height: calc(100svh - 96px);
   object-fit: contain;        /* пропорции сохраняются, ничего не обрезается */
+  margin-right: calc((min(100vw, 1200px) - 100vw) / 2 - 26px);
 }
 
 /* ============================================================= */
