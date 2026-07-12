@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body>
 
@@ -101,14 +101,10 @@
       </div>
 
       <div class="hero-figure reveal">
-        <span class="spark spark-tl" aria-hidden="true"></span>
-        <span class="curl curl-br" aria-hidden="true"></span>
-        <figure class="ph ph-arch hero-photo">
-          <!-- ФОТО: сильный кадр — портрет клиента/модели ИЛИ интерьер
-               с изумрудными креслами и кольцевыми люстрами.
-               Файл: images/hero.jpg -->
-          <img loading="eager" src="images/hero.jpg" alt="Интерьер салона Сатори с изумрудными креслами" onerror="this.classList.add('img-missing')" />
-        </figure>
+        <!-- ФОТО: девушка с фирменной цитатой, прозрачный фон.
+             Файл: images/hero-girl-quote.png — лежит прямо на кремовом фоне,
+             без рамок и обрезки. Чтобы заменить — загрузите файл с тем же именем. -->
+        <img class="hero-girl" src="images/hero-girl-quote.png" alt="Красота — это состояние души" loading="eager" />
       </div>
 
     </div>
@@ -480,6 +476,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=19"></script>
+<script src="app.js?v=20"></script>
 </body>
 </html>

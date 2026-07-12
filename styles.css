@@ -286,7 +286,7 @@ a { color: inherit; text-decoration: none; }
 /*  HERO (сплит)                                                 */
 /* ============================================================= */
 .hero {
-  padding: 100px 0 70px;
+  padding: 100px 0 0; /* низ без отступа — фото девушки стоит на нижней кромке секции */
   background:
     radial-gradient(120% 90% at 85% 10%, rgba(169, 138, 78, 0.1), transparent 55%),
     var(--cream);
@@ -325,8 +325,22 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 
-.hero-figure { position: relative; }
-.hero-photo { aspect-ratio: 4 / 5; max-width: 460px; margin-left: auto; }
+/* Правая часть hero: фото девушки с цитатой (прозрачный PNG).
+   Выровнено по правому краю и по низу секции, без рамок и обрезки. */
+.hero-figure {
+  align-self: stretch;        /* колонка тянется на всю высоту ряда */
+  display: flex;
+  align-items: flex-end;      /* по низу секции */
+  justify-content: flex-end;  /* по правому краю контейнера */
+}
+.hero-girl {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;        /* пропорции сохраняются, ничего не обрезается */
+}
 
 /* ============================================================= */
 /*  СЕКЦИИ (единая кремовая база)                                 */
@@ -645,7 +659,9 @@ a.c-value:hover { color: var(--gold); }
 /* ============================================================= */
 @media (max-width: 940px) {
   .hero-inner { grid-template-columns: 1fr; gap: 44px; min-height: 0; text-align: left; }
-  .hero-photo { margin: 0 auto; max-width: 420px; }
+  /* Мобильная версия: фото под текстом, по центру, на всю ширину, без обрезки */
+  .hero-figure { align-self: auto; justify-content: center; }
+  .hero-girl { width: 100%; max-width: 460px; max-height: none; margin: 0 auto; }
   .about-grid, .rent-grid, .contacts-grid { grid-template-columns: 1fr; gap: 46px; }
   .about-figure { order: -1; }
   .services-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
