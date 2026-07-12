@@ -358,19 +358,6 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================= */
 .section { padding: clamp(72px, 10vw, 130px) 0; }
 
-/* Разделитель между секциями: знак по центру + золотые линии по бокам.
-   Один переиспользуемый блок для всех разделителей. */
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 26px;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 80px 13%; /* верт. отступы + линии не доходят ~13% до краёв */
-}
-.section-divider-line { flex: 1; height: 1px; background: var(--gold); }
-.section-divider-mark { flex: none; height: 44px; width: auto; display: block; }
-
 /* ---------- О салоне (изумрудная секция — как «Мастерам») ---------- */
 .about { background: var(--emerald); color: var(--cream); }
 .about-grid {
@@ -710,12 +697,10 @@ a.c-value:hover { color: var(--gold); }
   .nav.open { transform: translateY(0); }
   .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
   .nav-cta { margin-top: 14px; }
-  /* На мобильном в шапке — только знак (56px), без линии и надписи */
+  /* На мобильном логотип компактнее, но со знаком, линией и надписью */
   .brand-mark { height: 56px; }
-  .brand-divider, .brand-word { display: none; }
-  /* Разделитель на мобильном: короче линии, меньше знак и отступы */
-  .section-divider { padding: 48px 16%; gap: 18px; }
-  .section-divider-mark { height: 36px; }
+  .brand-divider { height: 44px; margin: 0 14px; }
+  .brand-word { height: 36px; }
 }
 
 @media (max-width: 480px) {
