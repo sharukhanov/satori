@@ -22,7 +22,22 @@
 
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-label: "Jost", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* ---- Единая типографическая шкала (используются ТОЛЬКО эти значения) ---- */
+  /* Заголовки — Playfair Display */
+  --fs-h1: 56px;   --lh-h1: 1.15;   /* главный заголовок hero */
+  --fs-h2: 40px;   --lh-h2: 1.2;    /* заголовки секций */
+  --fs-h3: 26px;   --lh-h3: 1.3;    /* названия карточек/направлений, подзаголовки */
+  /* Метки, навигация, кнопки — Jost, CAPS */
+  --fs-eyebrow: 13px;  --ls-eyebrow: 0.30em;
+  --fs-nav: 14px;      --ls-nav: 0.14em;
+  --fs-btn: 14px;      --ls-btn: 0.16em;
+  /* Текст — Inter */
+  --fs-body: 17px;   --lh-body: 1.7;
+  --fs-small: 15px;  --lh-small: 1.6;
+  /* Акцент/цена — Playfair Display Italic, золото */
+  --fs-price: 22px;
 }
 
 /* ---------- Сброс / база ---------- */
@@ -34,7 +49,8 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--cream);
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -47,20 +63,20 @@ a { color: inherit; text-decoration: none; }
 .eyebrow {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.34em;
-  font-size: 0.72rem;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
   font-weight: 500;
   color: var(--gold);
   margin-bottom: 22px;
 }
 .eyebrow-gold { color: var(--gold); }
 
-/* ---------- Заголовки-антиква ---------- */
+/* ---------- Заголовки-антиква (H2) ---------- */
 .section-title {
   font-family: var(--font-head);
   font-weight: 600;
-  line-height: 1.08;
-  font-size: clamp(2.1rem, 5.2vw, 3.9rem);
+  line-height: var(--lh-h2);
+  font-size: var(--fs-h2);
   color: var(--ink);
   letter-spacing: -0.015em;
 }
@@ -75,7 +91,8 @@ a { color: inherit; text-decoration: none; }
 .section-lead {
   margin-top: 22px;
   max-width: 640px;
-  font-size: 1.08rem;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   opacity: 0.9;
 }
 /* Важный акцент во вступлении (например: цены — ориентировочные).
@@ -100,9 +117,9 @@ a { color: inherit; text-decoration: none; }
   gap: 8px;
   font-family: var(--font-label);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ls-btn);
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: var(--fs-btn);
   padding: 15px 34px;
   border-radius: 100px;
   border: 1.5px solid transparent;
@@ -208,9 +225,9 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   font-family: var(--font-label);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
-  font-size: 0.66rem;
+  font-size: var(--fs-eyebrow);
   color: var(--gold);
   padding: 16px;
   text-align: center;
@@ -253,8 +270,8 @@ a { color: inherit; text-decoration: none; }
 .nav > a:not(.btn) {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.76rem;
+  letter-spacing: var(--ls-nav);
+  font-size: var(--fs-nav);
   color: var(--ink);
   position: relative;
   padding: 4px 0;
@@ -306,30 +323,21 @@ a { color: inherit; text-decoration: none; }
   align-items: center; /* текст по центру по вертикали, вровень с аркой */
   min-height: calc(100svh - 220px);
 }
-.hero-wordmark { display: block; height: clamp(70px, 12.5vw, 116px); width: auto; margin-top: 4px; }
-
-.hero-tagline {
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: 1.35rem;
-  color: var(--ink);
-  opacity: 0.75;
-  margin-top: 8px;
-  margin-bottom: 22px;
-}
+/* Главный заголовок hero (H1) */
 .hero-slogan {
   font-family: var(--font-head);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  line-height: 1.25;
+  font-weight: 600;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
   color: var(--ink);
-  max-width: 22ch;
+  max-width: 18ch;
 }
 .hero-subtitle {
   margin-top: 16px;
   max-width: 44ch;
   opacity: 0.85;
-  font-size: 1.05rem;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 
@@ -366,18 +374,11 @@ a { color: inherit; text-decoration: none; }
   gap: 64px;
   align-items: center;
 }
-.about-text p { margin-bottom: 18px; font-size: 1.07rem; color: rgba(241, 235, 223, 0.9); }
-/* золотой курсив-акцент для выделенной фразы внутри текста «О салоне» */
-.about-text em { color: var(--gold); font-style: italic; }
+.about-text p { margin-bottom: 18px; font-size: var(--fs-body); line-height: var(--lh-body); color: rgba(241, 235, 223, 0.9); }
+/* золотой курсив-акцент (Playfair Italic) для выделенной фразы «О салоне» */
+.about-text em { font-family: var(--font-head); color: var(--gold); font-style: italic; }
 .about-text .section-title { margin-bottom: 26px; }
 .about-text p:last-child { margin-bottom: 0; }
-.about-accent {
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: 1.35rem;
-  color: var(--gold);
-  padding-top: 10px;
-}
 .about-figure { position: relative; }
 .about-photo { max-width: 440px; margin: 0 auto; aspect-ratio: 3 / 4; }
 /* заглушка фото на изумрудном фоне — мягкая, а не яркий кремовый блок */
@@ -407,16 +408,16 @@ a { color: inherit; text-decoration: none; }
 .service-eyebrow {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 0.62rem;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
   color: var(--gold);
   margin-bottom: 10px;
 }
 .service-cat {
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 1.15;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   /* резервируем 2 строки, чтобы заголовки категорий были одной высоты
      и строки услуг (и цены) стояли на одном уровне во всех карточках */
   min-height: 2.3em;
@@ -431,21 +432,17 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   gap: 3px;
 }
-.s-name { font-weight: 600; color: var(--ink); font-size: 1.02rem; }
+.s-name { font-weight: 600; color: var(--ink); font-size: var(--fs-body); line-height: 1.3; }
 /* резерв под 2 строки описания — выравнивает цены между карточками */
-.s-desc { font-size: 0.9rem; opacity: 0.72; min-height: 3.06rem; }
+.s-desc { font-size: var(--fs-small); line-height: var(--lh-small); opacity: 0.72; min-height: 3rem; }
+/* Цена — Playfair Display Italic, золото (одинаково во всех карточках) */
 .price {
-  align-self: flex-start; /* «пилюля» обнимает текст, а не тянется на всю ширину */
-  display: inline-block;
-  font-family: var(--font-label);
-  font-weight: 500;
-  font-size: 0.84rem;
-  letter-spacing: 0.03em;
-  color: var(--cream);
-  background: var(--emerald);
-  padding: 6px 15px;
-  border-radius: 100px;
-  margin-top: 10px;
+  align-self: flex-start;
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: var(--fs-price);
+  color: var(--gold);
+  margin-top: 8px;
 }
 .services-cta { text-align: center; margin-top: 56px; }
 
@@ -458,11 +455,12 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
 }
 .rent-text .section-title { margin-bottom: 26px; }
-.rent-text p { margin-bottom: 16px; font-size: 1.06rem; color: rgba(241, 235, 223, 0.9); }
+.rent-text p { margin-bottom: 16px; font-size: var(--fs-body); line-height: var(--lh-body); color: rgba(241, 235, 223, 0.9); }
 .rent-benefits-title {
   font-family: var(--font-head);
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: var(--gold);
   margin-top: 24px !important;
 }
@@ -484,9 +482,8 @@ a { color: inherit; text-decoration: none; }
 .rent-cta { margin-top: 32px; }
 .rent-note {
   margin-top: 16px;
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: 1.12rem;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
   color: rgba(241, 235, 223, 0.8);
 }
 .rent-gallery { position: relative; display: grid; gap: 22px; grid-template-columns: 1fr 1fr; align-items: start; }
@@ -517,11 +514,11 @@ a { color: inherit; text-decoration: none; }
 .c-label {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.66rem;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
   color: var(--gold);
 }
-.c-value { font-size: 1.12rem; color: var(--ink); transition: color 0.25s var(--ease); }
+.c-value { font-size: var(--fs-body); color: var(--ink); transition: color 0.25s var(--ease); }
 a.c-value:hover { color: var(--gold); }
 
 .socials { margin-top: 26px; }
@@ -532,8 +529,8 @@ a.c-value:hover { color: var(--gold); }
   gap: 8px;
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.72rem;
+  letter-spacing: var(--ls-nav);
+  font-size: var(--fs-nav);
   padding: 9px 18px;
   border: 1px solid var(--gold-soft);
   border-radius: 100px;
@@ -571,10 +568,11 @@ a.c-value:hover { color: var(--gold); }
 }
 .yandex-placeholder strong {
   font-family: var(--font-head);
-  font-size: 1.25rem;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
   color: var(--ink);
 }
-.yandex-placeholder span { font-size: 0.9rem; opacity: 0.7; }
+.yandex-placeholder span { font-size: var(--fs-small); line-height: var(--lh-small); opacity: 0.7; }
 
 /* ============================================================= */
 /*  ПОДВАЛ (изумрудный)                                          */
@@ -602,16 +600,16 @@ a.c-value:hover { color: var(--gold); }
 .footer-brand .brand-sub {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.64rem;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
   color: var(--gold);
 }
 .footer-nav, .footer-social { display: flex; flex-wrap: wrap; gap: 22px; }
 .footer-nav a, .footer-social a {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.74rem;
+  letter-spacing: var(--ls-nav);
+  font-size: var(--fs-nav);
   color: rgba(241, 235, 223, 0.75);
   transition: color 0.25s var(--ease);
 }
@@ -622,8 +620,8 @@ a.c-value:hover { color: var(--gold); }
 .footer-legal-title {
   font-family: var(--font-label);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.7rem;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
   font-weight: 500;
   color: var(--gold);
   margin-bottom: 14px;
@@ -639,19 +637,19 @@ a.c-value:hover { color: var(--gold); }
   gap: 14px;
   padding: 6px 0;
   border-bottom: 1px solid rgba(169, 138, 78, 0.18);
-  font-size: 0.86rem;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
 }
 .legal-row dt {
   color: var(--gold);
   font-family: var(--font-label);
-  letter-spacing: 0.02em;
 }
 .legal-row dd { color: rgba(241, 235, 223, 0.82); }
 .legal-row dd a { color: rgba(241, 235, 223, 0.82); transition: color 0.25s var(--ease); }
 .legal-row dd a:hover { color: var(--gold); }
 
 .footer-bottom { padding-top: 24px; }
-.footer-bottom p { font-size: 0.8rem; color: rgba(241, 235, 223, 0.55); }
+.footer-bottom p { font-size: var(--fs-small); color: rgba(241, 235, 223, 0.55); }
 
 /* ============================================================= */
 /*  АНИМАЦИИ ПОЯВЛЕНИЯ                                            */
@@ -668,6 +666,11 @@ a.c-value:hover { color: var(--gold); }
 /* ============================================================= */
 /*  АДАПТИВ                                                       */
 /* ============================================================= */
+/* На мобильном уменьшаем только заголовки, остальное — без изменений */
+@media (max-width: 768px) {
+  :root { --fs-h1: 36px; --fs-h2: 28px; --fs-h3: 22px; }
+}
+
 @media (max-width: 940px) {
   .hero-inner { grid-template-columns: 1fr; gap: 44px; min-height: 0; text-align: left; }
   /* Мобильная версия: фото под текстом, по центру, на всю ширину, без обрезки */
