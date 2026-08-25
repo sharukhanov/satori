@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=30" />
 </head>
 <body>
 
@@ -376,9 +376,10 @@
           <!-- /РЕДАКТИРУЕМО -->
 
           <figure class="ph ph-arch contacts-sign">
-            <!-- ФОТО: вывеска салона рядом с адресом.
-                 Файл: images/sign.jpg -->
-            <img loading="lazy" src="images/sign.jpg" alt="Вывеска салона красоты Сатори" onerror="this.classList.add('img-missing')" />
+            <!-- ФОТО: вход в салон с табличкой «Салон красоты» (вертикальный
+                 кадр). Файл: images/sign.jpg — чтобы заменить, загрузите
+                 файл с тем же именем в папку images/. -->
+            <img loading="lazy" src="images/sign.jpg" alt="Вход в салон красоты Сатори с табличкой и графиком работы" onerror="this.classList.add('img-missing')" />
           </figure>
         </div>
 
@@ -496,6 +497,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=29"></script>
+<script src="app.js?v=30"></script>
 </body>
 </html>
