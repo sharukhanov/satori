@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=28" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
 
@@ -303,15 +303,27 @@
 
       <div class="rent-gallery reveal">
         <span class="spark spark-tl" aria-hidden="true"></span>
+        <!-- ФОТО РАБОЧИХ МЕСТ. Чтобы заменить любое — загрузите файл
+             с тем же именем в папку images/. Все кадры вертикальные. -->
         <figure class="ph ph-arch rent-photo rent-photo-a">
-          <!-- ФОТО: парикмахерские рабочие места.
+          <!-- ФОТО: парикмахерское рабочее место (зеркало, кресла).
                Файл: images/rent-1.jpg -->
-          <img loading="lazy" src="images/rent-1.jpg" alt="Оборудованные рабочие места для мастеров в салоне Сатори" onerror="this.classList.add('img-missing')" />
+          <img loading="lazy" src="images/rent-1.jpg" alt="Парикмахерское рабочее место с зеркалом в салоне Сатори" onerror="this.classList.add('img-missing')" />
         </figure>
         <figure class="ph rent-photo rent-photo-b">
-          <!-- ФОТО: зона мойки / оборудование.
+          <!-- ФОТО: общий вид зала — мойки, стеллаж с косметикой.
                Файл: images/rent-2.jpg -->
-          <img loading="lazy" src="images/rent-2.jpg" alt="Зона мойки и оборудование для мастеров" onerror="this.classList.add('img-missing')" />
+          <img loading="lazy" src="images/rent-2.jpg" alt="Зал салона Сатори: мойки и стеллаж с профессиональной косметикой" onerror="this.classList.add('img-missing')" />
+        </figure>
+        <figure class="ph rent-photo rent-photo-c">
+          <!-- ФОТО: маникюрный стол (лампа, палитра лаков).
+               Файл: images/rent-3.jpg -->
+          <img loading="lazy" src="images/rent-3.jpg" alt="Оборудованное место мастера маникюра в салоне Сатори" onerror="this.classList.add('img-missing')" />
+        </figure>
+        <figure class="ph ph-arch rent-photo rent-photo-d">
+          <!-- ФОТО: кабинет косметологии (кресло, лампа).
+               Файл: images/rent-4.jpg -->
+          <img loading="lazy" src="images/rent-4.jpg" alt="Кабинет косметолога с креслом и оборудованием" onerror="this.classList.add('img-missing')" />
         </figure>
       </div>
     </div>
@@ -484,6 +496,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=28"></script>
+<script src="app.js?v=29"></script>
 </body>
 </html>

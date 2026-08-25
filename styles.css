@@ -496,9 +496,13 @@ a { color: inherit; text-decoration: none; }
   line-height: var(--lh-small);
   color: rgba(241, 235, 223, 0.8);
 }
+/* Галерея рабочих мест: 4 вертикальных кадра, сетка 2×2 со смещением.
+   Пропорции заданы под каждый кадр, чтобы фото не обрезались. */
 .rent-gallery { position: relative; display: grid; gap: 22px; grid-template-columns: 1fr 1fr; align-items: start; }
-.rent-photo-a { aspect-ratio: 3 / 4; margin-top: 26px; }
-.rent-photo-b { aspect-ratio: 3 / 4; }
+.rent-photo-a { aspect-ratio: 2 / 3; margin-top: 26px; }
+.rent-photo-b { aspect-ratio: 2 / 3; }
+.rent-photo-c { aspect-ratio: 3 / 4; }
+.rent-photo-d { aspect-ratio: 3 / 4; margin-top: -26px; }
 .rent-gallery .ph { background: rgba(241, 235, 223, 0.08); }
 .rent-gallery .ph:has(.img-missing) {
   background: rgba(241, 235, 223, 0.08);
@@ -722,7 +726,7 @@ a.c-value:hover { color: var(--gold); }
   .hero-actions { flex-direction: column; }
   .hero-logo-row { gap: 14px; }
   .rent-gallery { grid-template-columns: 1fr; }
-  .rent-photo-a { margin-top: 0; }
+  .rent-photo-a, .rent-photo-d { margin-top: 0; }
   .legal-row { grid-template-columns: 1fr; gap: 2px; padding: 9px 0; }
 }
 
