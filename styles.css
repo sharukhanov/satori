@@ -432,17 +432,25 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   gap: 3px;
 }
-.s-name { font-weight: 600; color: var(--ink); font-size: var(--fs-body); line-height: 1.3; }
+/* резерв под 2 строки названия — держит цены на одном уровне между карточками */
+.s-name { font-weight: 600; color: var(--ink); font-size: var(--fs-body); line-height: 1.3; min-height: 2.6em; }
 /* резерв под 2 строки описания — выравнивает цены между карточками */
 .s-desc { font-size: var(--fs-small); line-height: var(--lh-small); opacity: 0.72; min-height: 3rem; }
 /* Цена — Playfair Display Italic, золото (одинаково во всех карточках) */
+/* Цена — изумрудная «пилюля» (бейдж), одинаково во всех карточках */
 .price {
   align-self: flex-start;
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: var(--fs-price);
-  color: var(--gold);
-  margin-top: 8px;
+  display: inline-block;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--fs-nav);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--emerald);
+  padding: 6px 15px;
+  border-radius: 100px;
+  margin-top: 10px;
 }
 .services-cta { text-align: center; margin-top: 56px; }
 
