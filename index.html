@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=33" />
+  <link rel="stylesheet" href="styles.css?v=34" />
 </head>
 <body>
 
@@ -376,15 +376,16 @@
           <!-- /РЕДАКТИРУЕМО -->
         </div>
 
-        <div class="contacts-media reveal">
+        <figure class="ph ph-arch contacts-sign reveal">
+          <!-- ФОТО: вход в салон с табличкой «Салон красоты» (вертикальный
+               кадр). Файл: images/sign.jpg — чтобы заменить, загрузите
+               файл с тем же именем в папку images/. -->
+          <img loading="lazy" src="images/sign.jpg" alt="Вход в салон красоты Сатори с табличкой и графиком работы" onerror="this.classList.add('img-missing')" />
+        </figure>
+      </div>
 
-          <figure class="ph ph-arch contacts-sign">
-            <!-- ФОТО: вход в салон с табличкой «Салон красоты» (вертикальный
-                 кадр). Файл: images/sign.jpg — чтобы заменить, загрузите
-                 файл с тем же именем в папку images/. -->
-            <img loading="lazy" src="images/sign.jpg" alt="Вход в салон красоты Сатори с табличкой и графиком работы" onerror="this.classList.add('img-missing')" />
-          </figure>
-
+      <!-- Карта во всю ширину секции, под контактами -->
+      <div class="contacts-map-wrap reveal">
 
           <!-- РЕДАКТИРУЕМО: код карты Яндекса.
                Адрес карты указан в data-src (ленивая загрузка: скрипт
@@ -402,7 +403,6 @@
           </div>
           <!-- /РЕДАКТИРУЕМО -->
 
-        </div>
       </div>
     </div>
   </section>
@@ -484,6 +484,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=33"></script>
+<script src="app.js?v=34"></script>
 </body>
 </html>
