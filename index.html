@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=27" />
+  <link rel="stylesheet" href="styles.css?v=28" />
 </head>
 <body>
 
@@ -160,9 +160,10 @@
              Чтобы изменить цену — правьте текст в <span class="price">. -->
         <article class="service-card reveal">
           <figure class="ph ph-arch service-photo">
-            <!-- ФОТО: парикмахерский зал (зеркала, рабочие места).
-                 Файл: images/service-hair.jpg -->
-            <img loading="lazy" src="images/service-hair.jpg" alt="Парикмахерский зал салона Сатори" onerror="this.classList.add('img-missing')" />
+            <!-- ФОТО: длинные ухоженные блестящие волосы (квадратный кадр).
+                 Файл: images/service-hair.jpg — чтобы заменить, загрузите
+                 файл с тем же именем в папку images/. -->
+            <img loading="lazy" src="images/service-hair.jpg" alt="Длинные ухоженные волосы после ухода в салоне Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
           <div class="service-body">
             <p class="service-eyebrow">НАПРАВЛЕНИЕ 01</p>
@@ -191,9 +192,10 @@
         <!-- РЕДАКТИРУЕМО: категория «Ногтевой сервис» -->
         <article class="service-card reveal">
           <figure class="ph ph-arch service-photo">
-            <!-- ФОТО: зона маникюра (кресло, лампа).
-                 Файл: images/service-nails.jpg -->
-            <img loading="lazy" src="images/service-nails.jpg" alt="Зона маникюра салона Сатори" onerror="this.classList.add('img-missing')" />
+            <!-- ФОТО: ухоженные ногти, нюдовое покрытие (квадратный кадр).
+                 Файл: images/service-nails.jpg — чтобы заменить, загрузите
+                 файл с тем же именем в папку images/. -->
+            <img loading="lazy" src="images/service-nails.jpg" alt="Ухоженные ногти с нюдовым покрытием — работа мастера Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
           <div class="service-body">
             <p class="service-eyebrow">НАПРАВЛЕНИЕ 02</p>
@@ -222,9 +224,10 @@
         <!-- РЕДАКТИРУЕМО: категория «Косметология» -->
         <article class="service-card reveal">
           <figure class="ph ph-arch service-photo">
-            <!-- ФОТО: мойка / полки с косметикой.
-                 Файл: images/service-care.jpg -->
-            <img loading="lazy" src="images/service-care.jpg" alt="Зона косметологии и ухода в салоне Сатори" onerror="this.classList.add('img-missing')" />
+            <!-- ФОТО: процедура для бровей крупным планом (квадратный кадр).
+                 Файл: images/service-care.jpg — чтобы заменить, загрузите
+                 файл с тем же именем в папку images/. -->
+            <img loading="lazy" src="images/service-care.jpg" alt="Процедура коррекции бровей в салоне Сатори" onerror="this.classList.add('img-missing')" />
           </figure>
           <div class="service-body">
             <p class="service-eyebrow">НАПРАВЛЕНИЕ 03</p>
@@ -481,6 +484,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=27"></script>
+<script src="app.js?v=28"></script>
 </body>
 </html>
