@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=31" />
+  <link rel="stylesheet" href="styles.css?v=32" />
 </head>
 <body>
 
@@ -387,18 +387,16 @@
 
 
           <!-- РЕДАКТИРУЕМО: код карты Яндекса.
-               Как получить: откройте constructor.yandex.ru/maps, постройте
-               карту с меткой салона, нажмите «Получить код», скопируйте
-               <iframe>...</iframe> и вставьте ВМЕСТО блока-заглушки ниже
-               (внутрь div.yandex-map). Для ленивой загрузки в реальном
-               коде замените у iframe атрибут src на data-src — скрипт
-               подгрузит карту, когда секция появится на экране. -->
+               Адрес карты указан в data-src (ленивая загрузка: скрипт
+               app.js подставит его, когда секция появится на экране).
+               Чтобы поменять карту — замените ссылку в data-src на новую
+               из конструктора Яндекс.Карт (constructor.yandex.ru/maps).
+               Параметр z=12 — масштаб: чем больше число, тем ближе
+               (например z=16 — крупный план дома). -->
           <div class="yandex-box yandex-map" id="yandex-map">
-            <!-- Заглушка: удалите этот блок, когда вставите <iframe> карты -->
-            <div class="yandex-placeholder">
-              <strong>Мини-карта Яндекса</strong>
-              <span>Вставьте сюда код карты из конструктора Яндекс.Карт<br/>(constructor.yandex.ru/maps)</span>
-            </div>
+            <iframe data-src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=157437696089"
+                    width="560" height="400" frameborder="0" allowfullscreen="true"
+                    loading="lazy" title="Салон красоты «Сатори» на карте Яндекса"></iframe>
           </div>
           <!-- /РЕДАКТИРУЕМО -->
 
@@ -484,6 +482,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=31"></script>
+<script src="app.js?v=32"></script>
 </body>
 </html>
