@@ -555,7 +555,8 @@ a.c-value:hover { color: var(--gold); }
 /* Иконки соцсетей (Telegram/WhatsApp) — цвет наследуется от ссылки */
 .soc-ic { width: 18px; height: 18px; flex: none; display: block; }
 
-.contacts-sign { margin-top: 30px; aspect-ratio: 16 / 10; max-width: 420px; }
+/* пропорция 2:3 — под вертикальный кадр входа с вывеской (без обрезки) */
+.contacts-sign { margin-top: 30px; aspect-ratio: 2 / 3; max-width: 380px; }
 
 .contacts-yandex { display: grid; gap: 22px; }
 .yandex-box {
