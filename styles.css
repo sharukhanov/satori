@@ -404,7 +404,8 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-6px);
   box-shadow: 0 26px 50px -34px rgba(43, 38, 32, 0.5);
 }
-.service-photo { aspect-ratio: 4 / 3; margin: 6px 6px 34px; }
+/* пропорция 1:1 — под квадратные кадры услуг (фото не обрезается) */
+.service-photo { aspect-ratio: 1 / 1; margin: 6px 6px 34px; }
 .service-photo.ph-arch::before { inset: -11px -11px 11px -11px; }
 .service-eyebrow {
   font-family: var(--font-label);
