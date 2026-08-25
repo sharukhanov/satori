@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=32" />
+  <link rel="stylesheet" href="styles.css?v=33" />
 </head>
 <body>
 
@@ -391,10 +391,12 @@
                app.js подставит его, когда секция появится на экране).
                Чтобы поменять карту — замените ссылку в data-src на новую
                из конструктора Яндекс.Карт (constructor.yandex.ru/maps).
-               Параметр z=12 — масштаб: чем больше число, тем ближе
-               (например z=16 — крупный план дома). -->
+               Параметр z=15 — масштаб: чем больше число, тем ближе.
+               z=15 подобран так, чтобы рядом с салоном была видна
+               ближайшая станция метро. Нужен другой охват — поменяйте
+               цифру: z=14 — шире, z=16 — крупный план дома. -->
           <div class="yandex-box yandex-map" id="yandex-map">
-            <iframe data-src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=157437696089"
+            <iframe data-src="https://yandex.ru/map-widget/v1/?z=15&amp;ol=biz&amp;oid=157437696089"
                     width="560" height="400" frameborder="0" allowfullscreen="true"
                     loading="lazy" title="Салон красоты «Сатори» на карте Яндекса"></iframe>
           </div>
@@ -482,6 +484,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=32"></script>
+<script src="app.js?v=33"></script>
 </body>
 </html>
