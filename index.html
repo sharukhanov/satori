@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=30" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body>
 
@@ -374,6 +374,9 @@
             </div>
           </div>
           <!-- /РЕДАКТИРУЕМО -->
+        </div>
+
+        <div class="contacts-media reveal">
 
           <figure class="ph ph-arch contacts-sign">
             <!-- ФОТО: вход в салон с табличкой «Салон красоты» (вертикальный
@@ -381,9 +384,7 @@
                  файл с тем же именем в папку images/. -->
             <img loading="lazy" src="images/sign.jpg" alt="Вход в салон красоты Сатори с табличкой и графиком работы" onerror="this.classList.add('img-missing')" />
           </figure>
-        </div>
 
-        <div class="contacts-yandex reveal">
 
           <!-- РЕДАКТИРУЕМО: код карты Яндекса.
                Как получить: откройте constructor.yandex.ru/maps, постройте
@@ -397,20 +398,6 @@
             <div class="yandex-placeholder">
               <strong>Мини-карта Яндекса</strong>
               <span>Вставьте сюда код карты из конструктора Яндекс.Карт<br/>(constructor.yandex.ru/maps)</span>
-            </div>
-          </div>
-          <!-- /РЕДАКТИРУЕМО -->
-
-          <!-- РЕДАКТИРУЕМО: карточка организации из Яндекс Бизнеса.
-               Как получить: профиль салона в Яндекс Бизнесе → виджет
-               компании (рейтинг, отзывы, фото, часы) → скопируйте код
-               и вставьте ВМЕСТО заглушки ниже (внутрь div.yandex-card).
-               Для ленивой загрузки используйте data-src вместо src. -->
-          <div class="yandex-box yandex-card" id="yandex-card">
-            <!-- Заглушка: удалите этот блок, когда вставите виджет компании -->
-            <div class="yandex-placeholder">
-              <strong>Карточка организации (Яндекс Бизнес)</strong>
-              <span>Рейтинг, отзывы, фото и часы работы.<br/>Требуется профиль салона в Яндекс Бизнесе.</span>
             </div>
           </div>
           <!-- /РЕДАКТИРУЕМО -->
@@ -497,6 +484,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=30"></script>
+<script src="app.js?v=31"></script>
 </body>
 </html>
