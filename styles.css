@@ -16,6 +16,10 @@
   --sage: #9ECBA7;         /* мягкие заливки при необходимости */
 
   --maxw: 1200px;
+  /* Боковые поля контейнера. Вынесены в переменную, чтобы блоки,
+     которым нужно выйти за край экрана (фото в hero), могли
+     отступить ровно на эту величину. На узких экранах — 20px. */
+  --pad: 26px;
   /* Единая ширина фото на десктопе (одинаковая во всех секциях) */
   --photo-w: 440px;
   --radius: 14px;
@@ -59,7 +63,11 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 26px; }
+/* Только боковые поля, БЕЗ сокращённой записи padding: тем же классом
+   .container помечены блоки со своими вертикальными отступами
+   (.footer-inner, .footer-legal, .footer-bottom), и запись `padding: 0 26px`
+   обнуляла им отступы сверху и снизу — элементы слипались. */
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
 /* ---------- Метки / эйбрау ---------- */
 .eyebrow {
@@ -665,8 +673,8 @@ a.c-value:hover { color: var(--gold); }
 .footer-inner::after {
   content: "";
   position: absolute;
-  left: 26px;
-  right: 26px;
+  left: var(--pad);
+  right: var(--pad);
   bottom: 0;
   height: 1px;
   background: rgba(169, 138, 78, 0.3);
@@ -754,8 +762,10 @@ a.c-value:hover { color: var(--gold); }
 @media (max-width: 940px) {
   .hero-inner { grid-template-columns: 1fr; gap: 44px; min-height: 0; text-align: left; }
   /* Мобильная версия: фото под текстом, по центру, на всю ширину, без обрезки */
-  .hero-figure { align-self: auto; justify-content: center; }
-  .hero-girl { width: 100%; max-width: 460px; max-height: none; margin: 0 auto; }
+  /* Как и на десктопе — фото вплотную к правому краю экрана:
+     отрицательное поле гасит боковой отступ .container. */
+  .hero-figure { align-self: auto; justify-content: flex-end; margin-right: calc(var(--pad) * -1); }
+  .hero-girl { width: 100%; max-width: 460px; max-height: none; margin: 0 0 0 auto; }
   .about-grid, .rent-grid, .contacts-grid { grid-template-columns: 1fr; gap: 46px; }
   .about-figure { order: -1; }
   /* Мобильная версия: фото входа по центру, карта ниже и пониже ростом */
@@ -791,7 +801,7 @@ a.c-value:hover { color: var(--gold); }
 }
 
 @media (max-width: 480px) {
-  .container { padding: 0 20px; }
+  :root { --pad: 20px; }
   .btn { width: 100%; }
   .hero-actions { flex-direction: column; }
   .hero-logo-row { gap: 14px; }
