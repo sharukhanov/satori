@@ -45,7 +45,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=36" />
+  <link rel="stylesheet" href="styles.css?v=37" />
 </head>
 <body>
 
@@ -337,13 +337,15 @@
   <!-- ===================== КОНТАКТЫ ===================== -->
   <section class="section contacts" id="contacts">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">КОНТАКТЫ</p>
-        <h2 class="section-title">Приходите <em>в гости</em></h2>
-      </div>
-
       <div class="contacts-grid">
         <div class="contacts-info reveal">
+          <!-- Заголовок раздела живёт внутри левой колонки: так фото входа
+               справа начинается на одном уровне с текстом, а не ниже него. -->
+          <div class="section-head">
+            <p class="eyebrow">КОНТАКТЫ</p>
+            <h2 class="section-title">Приходите <em>в гости</em></h2>
+          </div>
+
           <!-- РЕДАКТИРУЕМО: контактные данные салона.
                Меняйте и текст, и ссылки href (адрес, телефон, email, часы). -->
           <ul class="contact-list">
@@ -476,6 +478,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=36"></script>
+<script src="app.js?v=37"></script>
 </body>
 </html>
