@@ -8,8 +8,14 @@
   <!-- РЕДАКТИРУЕМО: SEO — заголовок и описание сайта                -->
   <!-- Меняйте только текст между тегами <title>...</title>          -->
   <!-- и значение content="..." у description.                       -->
-  <title>Сатори — салон красоты | Найдите своего мастера</title>
-  <meta name="description" content="Салон красоты «Сатори» — пространство независимых мастеров парикмахерского искусства, ногтевого сервиса и косметологии. Найдите своего мастера и превратите визит в персональный ритуал красоты." />
+  <!-- ВАЖНО про длину: заголовок Google показывает целиком примерно до
+       60 символов, описание — примерно до 155. Что длиннее, обрезается
+       многоточием. Сейчас: заголовок 51, описание 153 символа.
+       Считайте символы, когда правите, иначе в поиске снова появится «...».
+       Город и улица в тексте нужны для запросов вида «салон красоты
+       рядом со мной» — не убирайте их. -->
+  <title>Сатори — салон красоты в Москве, Кастанаевская 41к2</title>
+  <meta name="description" content="Салон красоты «Сатори» — Москва, ул. Кастанаевская, 41к2, рядом с метро Филёвский парк. Парикмахеры, ногтевой сервис, косметология. Ежедневно 9:00–21:00." />
   <!-- /РЕДАКТИРУЕМО -->
   
   <link rel="canonical" href="https://satori.beauty/" />
@@ -19,8 +25,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="Сатори" />
-  <meta property="og:title" content="Сатори — салон красоты" />
-  <meta property="og:description" content="Пространство независимых мастеров: парикмахерское искусство, ногтевой сервис, косметология. Найдите своего мастера." />
+  <meta property="og:title" content="Сатори — салон красоты в Москве" />
+  <meta property="og:description" content="Ул. Кастанаевская, 41к2, рядом с метро Филёвский парк. Парикмахеры, ногтевой сервис, косметология. Ежедневно 9:00–21:00." />
   <meta property="og:url" content="https://satori.beauty/" />
   <!-- РЕДАКТИРУЕМО: картинка для соцсетей (положите файл images/og.jpg, 1200×630) -->
   <meta property="og:image" content="https://satori.beauty/images/og.jpg" />
@@ -28,9 +34,55 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Сатори — салон красоты" />
-  <meta name="twitter:description" content="Пространство независимых мастеров: парикмахерское искусство, ногтевой сервис, косметология." />
+  <meta name="twitter:title" content="Сатори — салон красоты в Москве" />
+  <meta name="twitter:description" content="Ул. Кастанаевская, 41к2, рядом с метро Филёвский парк. Парикмахеры, ногтевой сервис, косметология. Ежедневно 9:00–21:00." />
   <meta name="twitter:image" content="https://satori.beauty/images/og.jpg" />
+
+  <!-- ============================================================= -->
+  <!-- РЕДАКТИРУЕМО: карточка организации для поисковиков (Schema.org).
+       Яндекс и Google читают этот блок, чтобы понять: это салон красоты
+       по конкретному адресу, с телефоном и часами работы. Без него сайт
+       для них — просто страница с текстом.
+       Меняйте только значения после двоеточий, кавычки и запятые не
+       трогайте — иначе разметка перестанет читаться. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Салон красоты «Сатори»",
+    "alternateName": "Сатори",
+    "description": "Бьюти-коворкинг: независимые мастера парикмахерского искусства, ногтевого сервиса и косметологии.",
+    "url": "https://satori.beauty/",
+    "image": "https://satori.beauty/images/sign.jpg",
+    "logo": "https://satori.beauty/apple-touch-icon.png",
+    "telephone": "+7 905 536-41-42",
+    "email": "satori.mos@yandex.ru",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Кастанаевская, д. 41, корп. 2",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    }],
+    "hasMap": "https://yandex.ru/maps/org/157437696089/",
+    "sameAs": ["https://yandex.ru/maps/org/157437696089/"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Услуги салона",
+      "itemListElement": [
+        { "@type": "OfferCatalog", "name": "Парикмахерское искусство" },
+        { "@type": "OfferCatalog", "name": "Ногтевой сервис" },
+        { "@type": "OfferCatalog", "name": "Косметология" }
+      ]
+    }
+  }
+  </script>
+  <!-- /РЕДАКТИРУЕМО -->
 
   <!-- Иконка сайта (вкладка браузера, закладки, экран «Домой» на телефоне).
        Монограмма «С» шрифтом Playfair Display на изумрудном фоне.
@@ -52,7 +104,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=42" />
+  <link rel="stylesheet" href="styles.css?v=43" />
 </head>
 <body>
 
@@ -98,7 +150,11 @@
         <p class="eyebrow">САЛОН-КРАСОТЫ · БЬЮТИ-КОВОРКИНГ</p>
 
         <!-- РЕДАКТИРУЕМО: слоган и подзаголовок Hero -->
-        <p class="hero-slogan">Пространство, где красота рождается <em>в ясности</em>.</p>
+        <!-- Это главный заголовок страницы (h1). Поисковики считают его
+             самым важным текстом на сайте, поэтому тег h1 на странице
+             должен быть ровно один. Внешне он не отличается от обычного
+             абзаца — оформление задаёт класс hero-slogan. -->
+        <h1 class="hero-slogan">Пространство, где красота рождается <em>в ясности</em>.</h1>
         <p class="hero-subtitle">Стрижка, маникюр, уход за лицом — и мастер, которого вы выбираете сами.</p>
         <!-- /РЕДАКТИРУЕМО -->
 
@@ -484,6 +540,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=42"></script>
+<script src="app.js?v=43"></script>
 </body>
 </html>
