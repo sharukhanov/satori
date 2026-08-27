@@ -488,16 +488,23 @@ a { color: inherit; text-decoration: none; }
   margin-top: 24px !important;
 }
 /* Преимущества в две колонки — текстовый блок занимает всю ширину
-   и не оставляет пустоты справа */
+   и не оставляет пустоты справа.
+   grid-auto-rows: 1fr — все строки одинаковой высоты, даже если пункт
+   переносится на две строки, поэтому подчёркивания слева и справа
+   всегда стоят на одном уровне. Пунктов должно быть ЧЁТНОЕ количество
+   (сейчас 6) — тогда колонки заканчиваются вровень. */
 .rent-benefits {
   list-style: none;
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 0 52px;
 }
 .rent-benefits li {
   position: relative;
+  display: flex;
+  align-items: center;
   padding: 10px 0 10px 30px;
   border-bottom: 1px solid rgba(169, 138, 78, 0.3);
   color: rgba(241, 235, 223, 0.92);
@@ -505,7 +512,8 @@ a { color: inherit; text-decoration: none; }
 .rent-benefits li::before {
   content: "";
   position: absolute;
-  left: 0; top: 15px;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
   width: 14px; height: 14px;
   background: no-repeat center / contain
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c1.1 8 3 9.9 12 12-9 2.1-10.9 4-12 12-1.1-8-3-9.9-12-12 9-2.1 10.9-4 12-12z' fill='%23A98A4E'/%3E%3C/svg%3E");
@@ -769,7 +777,7 @@ a.c-value:hover { color: var(--gold); }
   .hero-logo-row { gap: 14px; }
   .rent-gallery { grid-template-columns: 1fr; justify-content: stretch; }
   .rent-photo-a, .rent-photo-d { margin-top: 0; }
-  .rent-benefits { grid-template-columns: 1fr; }
+  .rent-benefits { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .legal-row { grid-template-columns: 1fr; gap: 2px; padding: 9px 0; }
 }
 
