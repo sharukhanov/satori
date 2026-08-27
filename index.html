@@ -32,9 +32,16 @@
   <meta name="twitter:description" content="Пространство независимых мастеров: парикмахерское искусство, ногтевой сервис, косметология." />
   <meta name="twitter:image" content="https://satori.beauty/images/og.jpg" />
 
-  <!-- Фавикон: одноконтурный знак-лицо (images/logo.jpg) -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
-  <link rel="apple-touch-icon" href="images/logo.jpg" />
+  <!-- Иконка сайта (вкладка браузера, закладки, экран «Домой» на телефоне).
+       Монограмма «С» шрифтом Playfair Display на изумрудном фоне.
+         favicon.svg        — векторная, её берут современные браузеры
+         favicon.ico        — 16/32/48 px, для старых браузеров
+         apple-touch-icon.png — 180×180, ярлык на экране iPhone/iPad
+       Файлы лежат в корне сайта. Чтобы заменить — загрузите свои
+       с теми же именами. -->
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <!-- Шрифты с поддержкой кириллицы -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +52,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=41" />
+  <link rel="stylesheet" href="styles.css?v=42" />
 </head>
 <body>
 
@@ -477,6 +484,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=41"></script>
+<script src="app.js?v=42"></script>
 </body>
 </html>
