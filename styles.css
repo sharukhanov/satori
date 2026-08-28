@@ -16,6 +16,10 @@
   --sage: #9ECBA7;         /* мягкие заливки при необходимости */
 
   --maxw: 1200px;
+  /* Высота фиксированной шапки. От неё зависят три вещи: сама шапка,
+     отступ при переходе по якорям и положение мобильного меню.
+     Меняется в одном месте, чтобы они не разъехались. */
+  --header-h: 100px;
   /* Боковые поля контейнера. Вынесены в переменную, чтобы блоки,
      которым нужно выйти за край экрана (фото в hero), могли
      отступить ровно на эту величину. На узких экранах — 20px. */
@@ -48,9 +52,9 @@
 
 /* ---------- Сброс / база ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-/* scroll-padding-top = высоте фиксированной шапки (100px), чтобы при переходе
+/* scroll-padding-top = высоте фиксированной шапки, чтобы при переходе
    по якорям секция вставала вплотную под шапку — без полоски предыдущего экрана */
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 body {
   font-family: var(--font-body);
   color: var(--ink);
@@ -262,7 +266,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px; /* выше — чтобы знак 78px помещался с воздухом */
+  height: var(--header-h); /* выше — чтобы знак 78px помещался с воздухом */
 }
 /* Логотип шапки: знак + золотая линия-разделитель + надпись, по центру */
 .brand { display: flex; align-items: center; }
@@ -778,20 +782,46 @@ a.c-value:hover { color: var(--gold); }
 
 @media (max-width: 760px) {
   .burger { display: flex; }
+  /* Мобильное меню.
+     Раньше панель выезжала из-за верхнего края через translateY(-135%).
+     По пути она проходила прямо над шапкой, закрывала логотип, а в конце
+     скачком вставала на место — это и выглядело дёрганьем. Теперь панель
+     всегда стоит там, где ей место (сразу под шапкой), и просто
+     проявляется: короткий сдвиг на 10px + прозрачность. Оба свойства
+     считает видеокарта, поэтому анимация ровная и на слабых телефонах. */
   .nav {
     position: fixed;
-    inset: 100px 0 auto 0;
+    inset: var(--header-h) 0 auto 0;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
     background: var(--cream);
-    padding: 18px 26px 28px;
+    padding: 18px var(--pad) 28px;
     border-bottom: 1px solid var(--gold-soft);
-    transform: translateY(-135%);
-    transition: transform 0.45s var(--ease);
     box-shadow: 0 22px 44px -26px rgba(43, 38, 32, 0.6);
+
+    /* Панель раскрывается сверху вниз через clip-path: сама коробка
+       стоит на месте, двигается только граница отсечения. Верхняя
+       граница всегда 0, поэтому панель физически не может залезть
+       на шапку. Отрицательные значения по бокам и снизу оставляют
+       место мягкой тени — иначе clip-path срезал бы и её. */
+    opacity: 0;
+    visibility: hidden;
+    clip-path: inset(0 -60px 100% -60px);
+    /* visibility переключается в конце — чтобы закрытое меню не ловило
+       касания поверх страницы, но и не исчезало до конца анимации */
+    transition: opacity 0.22s var(--ease),
+                clip-path 0.3s var(--ease),
+                visibility 0s linear 0.3s;
   }
-  .nav.open { transform: translateY(0); }
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    clip-path: inset(0 -60px -60px -60px);
+    transition: opacity 0.18s var(--ease),
+                clip-path 0.3s var(--ease),
+                visibility 0s;
+  }
   .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
   .nav-cta { margin-top: 14px; }
   /* На мобильном логотип компактнее, но со знаком, линией и надписью */
