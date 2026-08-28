@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Страница показывается, если посетитель ошибся в адресе.
+       GitHub Pages сам отдаёт её для любого несуществующего адреса —
+       имя файла 404.html менять нельзя.
+       ВАЖНО: все адреса здесь начинаются со слэша (/styles.css, /images/…).
+       Эта страница открывается по любому «кривому» адресу, в том числе
+       вложенному вроде /услуги/цены — при относительных путях оформление
+       и картинки бы не нашлись. -->
+  <title>Страница не найдена — Сатори</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#F1EBDF" />
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Jost:wght@400;500&family=Inter:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=51" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Сатори — на главную">
+      <img class="brand-mark" src="/images/logo-mark.png" alt="" />
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-word" src="/images/logo-wordmark.png" alt="Сатори" />
+    </a>
+  </div>
+</header>
+
+<main class="notfound">
+  <div class="container notfound-inner">
+    <span class="spark notfound-spark" aria-hidden="true"></span>
+    <!-- РЕДАКТИРУЕМО: текст страницы «не найдено» -->
+    <p class="eyebrow">ОШИБКА 404</p>
+    <h1 class="section-title">Такой страницы <em>не нашлось</em></h1>
+    <p class="notfound-text">
+      Возможно, в адресе опечатка или страницу переименовали.
+      Вернитесь на главную — там услуги, цены и контакты салона.
+    </p>
+    <a class="btn btn-accent" href="/">На главную</a>
+    <!-- /РЕДАКТИРУЕМО -->
+  </div>
+</main>
+
+</body>
+</html>
