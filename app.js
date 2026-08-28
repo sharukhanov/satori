@@ -129,24 +129,33 @@
      src — карта тоже работает, просто загрузится сразу. -------- */
   var contactsSection = document.getElementById("contacts");
 
+  /* Сколько держать заставку после события load у карты.
+     Событие load срабатывает, когда виджет скачал свой код, — плитки
+     карты он тянет уже ПОСЛЕ этого, и всё это время видна служебная
+     сетка. Заглянуть внутрь чужого iframe и узнать точный момент
+     отрисовки браузер не даёт, поэтому держим заставку ещё это время.
+     Хотите быстрее убирать заставку — уменьшите число (в миллисекундах),
+     но тогда на медленном интернете снова мелькнёт сетка. */
+  var MAP_PAINT_DELAY = 2600;
+
   function activateLazyFrames(root) {
     var frames = root.querySelectorAll("iframe[data-src]");
     frames.forEach(function (frame) {
       var box = frame.closest(".yandex-box");
+      var startedAt = Date.now();
 
-      /* Пока виджет Яндекса не дорисует плитки, он показывает служебную
-         сетку. Держим поверх неё нашу заставку и убираем её, когда карта
-         загрузилась. Небольшая задержка после load — документ виджета
-         готов чуть раньше, чем отрисованы плитки. */
       function reveal() {
         if (box) box.classList.add("map-ready");
       }
       if (box) {
         frame.addEventListener("load", function () {
-          window.setTimeout(reveal, 600);
+          // отсчитываем от начала загрузки, а не от load: если карта
+          // пришла быстро, заставка не будет висеть лишнее время
+          var waited = Date.now() - startedAt;
+          window.setTimeout(reveal, Math.max(400, MAP_PAINT_DELAY - waited));
         });
         // страховка: если load почему-то не сработает, заставка не зависнет
-        window.setTimeout(reveal, 8000);
+        window.setTimeout(reveal, 10000);
       }
 
       frame.src = frame.getAttribute("data-src");
@@ -155,25 +164,43 @@
   }
 
   if (contactsSection) {
+    var mapStarted = false;
+    function startMap() {
+      if (mapStarted) return;
+      mapStarted = true;
+      activateLazyFrames(contactsSection);
+    }
+
+    /* Карта грузится ДО того, как посетитель до неё доскроллит.
+       Раньше загрузка начиналась по появлению секции на экране — то есть
+       человек своими глазами наблюдал, как виджет собирается. Теперь
+       запускаем сразу после того, как страница загрузилась, в свободную
+       минуту браузера: на скорость открытия это не влияет (весь видимый
+       контент к этому моменту уже готов), а к моменту, когда посетитель
+       долистает до «Контактов», карта отрисована. */
+    window.addEventListener("load", function () {
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(startMap, { timeout: 2500 });
+      } else {
+        window.setTimeout(startMap, 1200);
+      }
+    });
+
+    /* Подстраховка: если посетитель пролистал вниз раньше, чем браузер
+       освободился, — начинаем грузить карту немедленно. */
     if ("IntersectionObserver" in window) {
       var mapObserver = new IntersectionObserver(
         function (entries, obs) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-              activateLazyFrames(entry.target);
+              startMap();
               obs.unobserve(entry.target);
             }
           });
         },
-        /* Запас в полтора экрана: карта начинает грузиться задолго до
-           того, как посетитель до неё доскроллит, и к его приходу уже
-           отрисована. При этом на открытие страницы она по-прежнему
-           не влияет — на телефоне это заметная экономия трафика. */
         { rootMargin: "1200px 0px" }
       );
       mapObserver.observe(contactsSection);
-    } else {
-      activateLazyFrames(contactsSection);
     }
   }
 
