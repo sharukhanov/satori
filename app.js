@@ -25,6 +25,14 @@
   var burger = document.getElementById("burger");
   var nav = document.getElementById("nav");
 
+  function closeMenu() {
+    if (!burger || !nav) return;
+    nav.classList.remove("open");
+    burger.classList.remove("open");
+    burger.setAttribute("aria-expanded", "false");
+    burger.setAttribute("aria-label", "Открыть меню");
+  }
+
   if (burger && nav) {
     burger.addEventListener("click", function () {
       var isOpen = nav.classList.toggle("open");
@@ -35,12 +43,28 @@
 
     // Закрывать меню после клика по любой ссылке
     nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("open");
-        burger.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
-        burger.setAttribute("aria-label", "Открыть меню");
-      });
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  /* -------- 1.1. Логотип — возврат на самый верх --------
+     Ссылка ведёт на «#top» — по стандарту это особый адрес «начало
+     страницы», он работает и без JavaScript. Здесь мы делаем то же самое
+     явно: так поведение одинаково во всех браузерах, заодно закрывается
+     мобильное меню и из адресной строки убирается хвост «#top». */
+  var brand = document.querySelector(".brand");
+  if (brand) {
+    brand.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeMenu();
+      var reduceMotion =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      // адрес без «#top» — чтобы обновление страницы не прыгало по якорю
+      if (history.replaceState) {
+        history.replaceState(null, "", location.pathname + location.search);
+      }
     });
   }
 
