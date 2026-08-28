@@ -833,8 +833,14 @@ a.c-value:hover { color: var(--gold); }
                 clip-path 0.42s var(--ease-menu),
                 visibility 0s;
   }
-  .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
-  .nav-cta { margin-top: 14px; }
+  /* Кнопка «Связаться» в мобильном меню не нужна: прямо над ней стоит
+     пункт «Контакты», который ведёт в тот же раздел. На десктопе кнопка
+     остаётся — там она единственный акцент в шапке. */
+  .nav-cta { display: none; }
+  .nav > a:not(.btn) { padding: 13px 0; width: 100%; }
+  /* Линия — между пунктами, а не под каждым: иначе под последним
+     пунктом висел бы штрих в пустоту. */
+  .nav > a:not(.btn) + a:not(.btn) { border-top: 1px solid var(--gold-soft); }
   /* На мобильном логотип компактнее, но со знаком, линией и надписью */
   .brand-mark { height: 56px; }
   .brand-divider { height: 44px; margin: 0 14px; }
