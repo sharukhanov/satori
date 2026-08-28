@@ -29,6 +29,12 @@
   --radius: 14px;
   --arch: 50vw 50vw 14px 14px; /* арка: круглый верх, прямой низ */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Отдельная кривая для мобильного меню. Основная --ease проходит
+     около 80% пути за первую четверть времени — для наведения и мелких
+     подсветок это бодро, а панель меню от неё «выстреливала». Здесь
+     разгон и торможение распределены ровно, поэтому меню раскрывается
+     плавно от начала до конца. */
+  --ease-menu: cubic-bezier(0.4, 0, 0.2, 1);
 
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-label: "Jost", system-ui, sans-serif;
@@ -315,7 +321,8 @@ a { color: inherit; text-decoration: none; }
   width: 24px; height: 2px;
   background: var(--emerald);
   border-radius: 2px;
-  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
+  /* Та же кривая, что у панели меню — иконка и панель движутся заодно */
+  transition: transform 0.34s var(--ease-menu), opacity 0.24s var(--ease-menu);
 }
 .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
@@ -786,9 +793,9 @@ a.c-value:hover { color: var(--gold); }
      Раньше панель выезжала из-за верхнего края через translateY(-135%).
      По пути она проходила прямо над шапкой, закрывала логотип, а в конце
      скачком вставала на место — это и выглядело дёрганьем. Теперь панель
-     всегда стоит там, где ей место (сразу под шапкой), и просто
-     проявляется: короткий сдвиг на 10px + прозрачность. Оба свойства
-     считает видеокарта, поэтому анимация ровная и на слабых телефонах. */
+     всегда стоит там, где ей место (сразу под шапкой), и раскрывается
+     сверху вниз. clip-path и opacity считает видеокарта, перекомпоновки
+     страницы нет — анимация ровная и на слабых телефонах. */
   .nav {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
@@ -808,18 +815,22 @@ a.c-value:hover { color: var(--gold); }
     opacity: 0;
     visibility: hidden;
     clip-path: inset(0 -60px 100% -60px);
-    /* visibility переключается в конце — чтобы закрытое меню не ловило
-       касания поверх страницы, но и не исчезало до конца анимации */
-    transition: opacity 0.22s var(--ease),
-                clip-path 0.3s var(--ease),
+    /* Закрытие — чуть быстрее открытия (0.30 против 0.42): убирать
+       панель с глаз нужно охотнее, чем показывать. visibility
+       переключается в самом конце, чтобы закрытое меню не ловило
+       касания поверх страницы, но и не исчезало до конца анимации. */
+    transition: opacity 0.24s var(--ease-menu),
+                clip-path 0.3s var(--ease-menu),
                 visibility 0s linear 0.3s;
   }
   .nav.open {
     opacity: 1;
     visibility: visible;
     clip-path: inset(0 -60px -60px -60px);
-    transition: opacity 0.18s var(--ease),
-                clip-path 0.3s var(--ease),
+    /* Прозрачность чуть короче раскрытия — панель успевает проявиться
+       к моменту, когда открылась целиком, и не мигает в конце. */
+    transition: opacity 0.34s var(--ease-menu),
+                clip-path 0.42s var(--ease-menu),
                 visibility 0s;
   }
   .nav > a:not(.btn) { padding: 13px 0; width: 100%; border-bottom: 1px solid var(--gold-soft); }
@@ -845,4 +856,6 @@ a.c-value:hover { color: var(--gold); }
   * { animation: none !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  /* Если в системе отключены анимации — меню просто появляется */
+  .nav, .nav.open { transition: none; }
 }
