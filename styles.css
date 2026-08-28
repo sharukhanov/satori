@@ -370,6 +370,10 @@ a { color: inherit; text-decoration: none; }
   align-items: flex-end;      /* по низу секции */
   justify-content: flex-end;  /* по правому краю контейнера */
 }
+/* <picture> — только обёртка для выбора формата (webp/png). display: contents
+   убирает её из раскладки, чтобы флекс-выравниванием управляло само
+   изображение, как было до появления обёртки. */
+.hero-figure picture { display: contents; }
 .hero-girl {
   display: block;
   width: auto;
@@ -401,7 +405,9 @@ a { color: inherit; text-decoration: none; }
    основного текста вместо золотой метки 13px). */
 .about-text p:not([class]) { margin-bottom: 18px; font-size: var(--fs-body); line-height: var(--lh-body); color: rgba(241, 235, 223, 0.9); }
 /* золотой курсив-акцент (Playfair Italic) для выделенной фразы «О салоне» */
-.about-text em { font-family: var(--font-head); color: var(--gold); font-style: italic; }
+/* font-weight задан явно: без него курсив просился 400-м, а грузится
+   только 500-й — браузер подставлял ближайший. Теперь совпадает. */
+.about-text em { font-family: var(--font-head); font-weight: 500; color: var(--gold); font-style: italic; }
 .about-text .section-title { margin-bottom: 26px; }
 .about-text p:not([class]):last-child { margin-bottom: 0; }
 .about-figure { position: relative; }
@@ -517,6 +523,7 @@ a { color: inherit; text-decoration: none; }
 .rent-benefits-title {
   font-family: var(--font-head);
   font-style: italic;
+  font-weight: 500; /* см. комментарий у .about-text em */
   font-size: var(--fs-h3);
   line-height: var(--lh-h3);
   color: var(--gold);
@@ -871,4 +878,32 @@ a.c-value:hover { color: var(--gold); }
   .reveal { opacity: 1; transform: none; transition: none; }
   /* Если в системе отключены анимации — меню просто появляется */
   .nav, .nav.open { transition: none; }
+}
+
+/* ============================================================= */
+/*  СТРАНИЦА 404 (файл 404.html)                                  */
+/* ============================================================= */
+.notfound {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + 40px) 0 60px;
+}
+.notfound-inner {
+  position: relative;
+  max-width: 640px;
+  text-align: center;
+}
+/* искра-звёздочка над заголовком — тот же декор, что и у фото в секциях */
+.notfound-spark { position: static; display: block; margin: 0 auto 26px; }
+.notfound .eyebrow { margin-bottom: 18px; }
+.notfound-text {
+  margin: 22px auto 34px;
+  max-width: 460px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  opacity: 0.85;
+}
+@media (max-width: 480px) {
+  .notfound .btn { width: 100%; }
 }

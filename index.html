@@ -28,8 +28,14 @@
   <meta property="og:title" content="Сатори — салон красоты в Москве" />
   <meta property="og:description" content="Ул. Кастанаевская, 41к2, рядом с метро Филёвский парк. Парикмахеры, ногтевой сервис, косметология. Ежедневно 9:00–21:00." />
   <meta property="og:url" content="https://satori.beauty/" />
-  <!-- РЕДАКТИРУЕМО: картинка для соцсетей (положите файл images/og.jpg, 1200×630) -->
+  <!-- РЕДАКТИРУЕМО: картинка превью при отправке ссылки в мессенджеры
+       и соцсети. Файл images/og.jpg, строго 1200×630. Чтобы поменять —
+       загрузите своё изображение с тем же именем и размером; ширину
+       и высоту ниже тогда менять не нужно. -->
   <meta property="og:image" content="https://satori.beauty/images/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Салон красоты «Сатори» — Москва, ул. Кастанаевская, 41к2" />
   <!-- /РЕДАКТИРУЕМО -->
 
   <!-- Twitter -->
@@ -98,13 +104,17 @@
   <!-- Шрифты с поддержкой кириллицы -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Загружаются ТОЛЬКО те начертания, которые реально используются
+       в styles.css. Если добавите новое (например, font-weight: 300) —
+       допишите его сюда, иначе браузер подделает начертание сам
+       и текст будет выглядеть грязно. -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Jost:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- ?v=7 — «версия» файла. Заставляет браузеры грузить свежий CSS,
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=49" />
+  <link rel="stylesheet" href="styles.css?v=51" />
 </head>
 <body>
 
@@ -175,9 +185,18 @@
 
       <div class="hero-figure reveal">
         <!-- ФОТО: девушка с фирменной цитатой, прозрачный фон.
-             Файл: images/hero-girl-quote.png — лежит прямо на кремовом фоне,
-             без рамок и обрезки. Чтобы заменить — загрузите файл с тем же именем. -->
-        <img class="hero-girl" src="images/hero-girl-quote.png" alt="Красота — это состояние души" loading="eager" />
+             Лежит прямо на кремовом фоне, без рамок и обрезки.
+             Два файла одной и той же картинки:
+               hero-girl-quote.webp — лёгкий (157 КБ), его берут все
+                 современные браузеры;
+               hero-girl-quote.png  — запасной (1,2 МБ) для очень старых.
+             Чтобы заменить фото — загрузите свой .png с тем же именем
+             и удалите строку с .webp (сайт продолжит работать, просто
+             первый экран станет тяжелее). -->
+        <picture>
+          <source srcset="images/hero-girl-quote.webp" type="image/webp" />
+          <img class="hero-girl" src="images/hero-girl-quote.png" alt="Красота — это состояние души" loading="eager" />
+        </picture>
       </div>
 
     </div>
@@ -552,6 +571,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=49"></script>
+<script src="app.js?v=51"></script>
 </body>
 </html>
