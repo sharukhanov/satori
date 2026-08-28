@@ -132,6 +132,23 @@
   function activateLazyFrames(root) {
     var frames = root.querySelectorAll("iframe[data-src]");
     frames.forEach(function (frame) {
+      var box = frame.closest(".yandex-box");
+
+      /* Пока виджет Яндекса не дорисует плитки, он показывает служебную
+         сетку. Держим поверх неё нашу заставку и убираем её, когда карта
+         загрузилась. Небольшая задержка после load — документ виджета
+         готов чуть раньше, чем отрисованы плитки. */
+      function reveal() {
+        if (box) box.classList.add("map-ready");
+      }
+      if (box) {
+        frame.addEventListener("load", function () {
+          window.setTimeout(reveal, 600);
+        });
+        // страховка: если load почему-то не сработает, заставка не зависнет
+        window.setTimeout(reveal, 8000);
+      }
+
       frame.src = frame.getAttribute("data-src");
       frame.removeAttribute("data-src");
     });
@@ -148,7 +165,11 @@
             }
           });
         },
-        { rootMargin: "200px 0px" }
+        /* Запас в полтора экрана: карта начинает грузиться задолго до
+           того, как посетитель до неё доскроллит, и к его приходу уже
+           отрисована. При этом на открытие страницы она по-прежнему
+           не влияет — на телефоне это заметная экономия трафика. */
+        { rootMargin: "1200px 0px" }
       );
       mapObserver.observe(contactsSection);
     } else {
