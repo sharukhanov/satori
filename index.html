@@ -104,7 +104,7 @@
        а не старый из кэша. Если правите styles.css и хотите гарантированно
        сбросить кэш у посетителей — увеличьте число (?v=8, ?v=9 и т.д.)
        здесь и у app.js ниже. -->
-  <link rel="stylesheet" href="styles.css?v=47" />
+  <link rel="stylesheet" href="styles.css?v=48" />
 </head>
 <body>
 
@@ -471,6 +471,13 @@
                ближайшая станция метро. Нужен другой охват — поменяйте
                цифру: z=14 — шире, z=16 — крупный план дома. -->
           <div class="yandex-box yandex-map" id="yandex-map">
+            <!-- Заставка поверх карты, пока Яндекс не дорисует плитки.
+                 Без неё первые секунды видна служебная сетка виджета.
+                 Скрипт app.js убирает её, когда карта готова. -->
+            <div class="yandex-placeholder" aria-hidden="true">
+              <strong>Сатори</strong>
+              <span>ул. Кастанаевская, 41к2 · загружаем карту</span>
+            </div>
             <iframe data-src="https://yandex.ru/map-widget/v1/?z=15&amp;ol=biz&amp;oid=157437696089"
                     width="560" height="400" frameborder="0" allowfullscreen="true"
                     loading="lazy" title="Салон красоты «Сатори» на карте Яндекса"></iframe>
@@ -545,6 +552,6 @@
 </footer>
 
 <!-- ?v=2 — версия файла для сброса кэша (см. комментарий у styles.css) -->
-<script src="app.js?v=47"></script>
+<script src="app.js?v=48"></script>
 </body>
 </html>
