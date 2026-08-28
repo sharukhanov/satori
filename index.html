@@ -32,7 +32,11 @@
        и соцсети. Файл images/og.jpg, строго 1200×630. Чтобы поменять —
        загрузите своё изображение с тем же именем и размером; ширину
        и высоту ниже тогда менять не нужно. -->
-  <meta property="og:image" content="https://satori.beauty/images/og.jpg" />
+  <!-- ?v=2 в адресе картинки — мессенджеры кэшируют превью очень надолго
+       и по неизменившемуся адресу продолжают показывать старое. Если
+       будете менять og.jpg — увеличьте число (?v=3), иначе Telegram
+       и WhatsApp могут месяцами показывать прежнюю карточку. -->
+  <meta property="og:image" content="https://satori.beauty/images/og.jpg?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Салон красоты «Сатори» — Москва, ул. Кастанаевская, 41к2" />
@@ -42,7 +46,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Сатори — салон красоты в Москве" />
   <meta name="twitter:description" content="Ул. Кастанаевская, 41к2, рядом с метро Филёвский парк. Парикмахеры, ногтевой сервис, косметология. Ежедневно 9:00–21:00." />
-  <meta name="twitter:image" content="https://satori.beauty/images/og.jpg" />
+  <meta name="twitter:image" content="https://satori.beauty/images/og.jpg?v=2" />
 
   <!-- ============================================================= -->
   <!-- РЕДАКТИРУЕМО: карточка организации для поисковиков (Schema.org).
